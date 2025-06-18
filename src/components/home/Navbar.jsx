@@ -3,6 +3,7 @@ import { Menu, X, User } from 'lucide-react';
 import Logo from '../ui/Logo'
 import { useUserContext } from '../../context/useUsercontext.js';
 import LinkGoogle from '../ui/LinkGoogle.jsx';
+import { Link } from 'react-router';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,40 +26,42 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-white py-4'
+        isScrolled ? 'bg-white shadow-md py-1' : 'bg-white py-1'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="mx-auto px-4 md:px-2 w-full">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <Logo/>
+            <img src="/villa.png" alt="" className='w-20 h-20 rounded-[100%]'/>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-sm font-medium hover:text-gold-600 transition-colors">Inicio</a>
-            <a href="#destinations" className="text-sm font-medium hover:text-gold-600 transition-colors">Destinos</a>
-            <a href="#offers" className="text-sm font-medium hover:text-gold-600 transition-colors">Ofertas Especiales</a>
-            <a href="#amenities" className="text-sm font-medium hover:text-gold-600 transition-colors">Amenidades</a>
-            <a href="#testimonials" className="text-sm font-medium hover:text-gold-600 transition-colors">Testimonios</a>
-            <a href="#contact" className="text-sm font-medium hover:text-gold-600 transition-colors">Contacto</a>
-            <a href="/reservations" className="text-sm font-medium hover:text-gold-600 transition-colors">Mis Reservas</a>
+          <div className="hidden md:flex items-center space-x-7">
+            <Link to="/" className="text-sm font-medium hover:text-amber-400 transition-colors">Inicio</Link>
+            <a href="#destinations" className="text-sm font-medium hover:text-amber-400 transition-colors">Destinos</a>
+            <a href="#offers" className="text-sm font-medium hover:text-amber-400 transition-colors">Ofertas</a>
+            <a href="#amenities" className="text-sm font-medium hover:text-amber-400 transition-colors">Amenidades</a>
+            <a href="#testimonials" className="text-sm font-medium hover:text-amber-400 transition-colors">Testimonios</a>
+            <a href="#contact" className="text-sm font-medium hover:text-amber-400 transition-colors">Contacto</a>
+            <Link to="/hotel" className="text-sm font-medium hover:text-amber-400 transition-colors">Mis Reservas</Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
             <LinkGoogle user={user}/>
-
-
-            <a href="/reserve" className="btn-primary text-sm">Reservar</a>
           </div>
 
           {/* Mobile Navigation Toggle */}
+
+
+          <div className="md:hidden focus:outline-none flex gap-2">
+          <LinkGoogle user={user}/>
           <button 
             className="md:hidden focus:outline-none" 
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6 text-gold-600" /> : <Menu className="h-6 w-6 text-gold-600" />}
           </button>
+          </div>
         </div>
       </div>
 

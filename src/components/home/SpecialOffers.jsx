@@ -49,7 +49,7 @@ const SpecialOffers = () => {
 
         <div className="space-y-8">
           <Offer
-            image="/view.webp"
+            image="https://i.imgur.com/LIwQq2b.jpeg"
             title="Summer Gateway Package"
             description="Enjoy a luxurious 7-night stay with complimentary breakfast, spa access, and a sunset dinner cruise. Perfect for couples looking for a romantic escape."
             discount="Save 25%"
@@ -58,7 +58,7 @@ const SpecialOffers = () => {
           />
           
           <Offer
-            image="/hotel.jpeg"
+            image="https://i.imgur.com/tzyGVnF.jpeg"
             title="Family Vacation Special"
             description="Book a family suite and get 50% off for children under 12, plus complimentary access to kids' club activities and a family adventure tour package."
             discount="Kids Stay Free"

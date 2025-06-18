@@ -9,4 +9,13 @@ export const getReservations = async (userId) => {
         console.error(error);
     }
 }
-    
+
+export const createReservation = async (reservationData) => {
+    try {
+        const response = await axiosInstance.post(`/reservations/save`, reservationData);
+        return response;
+    } catch (error) {
+        console.error("Error creating reservation:", error);
+        throw error;
+    }
+}

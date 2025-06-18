@@ -1,23 +1,7 @@
-import { useState } from "react"
 import Logo from "../components/ui/Logo"
 import ButtonLoginGoogle from "../components/ui/ButtonLoginGoogle"
 
 const Login = () => {
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleGoogleLogin = async () => {
-    setIsLoading(true)
-    // Aquí iría la lógica de autenticación con Google
-    try {
-      // Simulando un proceso de autenticación
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-      console.log("Iniciando sesión con Google")
-    } catch (error) {
-      console.error("Error al iniciar sesión", error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white p-4">
@@ -35,20 +19,11 @@ const Login = () => {
               <Logo size="large"/>
             </div>
 
-            <button
-              onClick={handleGoogleLogin}
-              disabled={isLoading}
+            <div
               className="w-full py-2 px-4 bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 hover:border-amber-300 transition-colors rounded-md flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {isLoading ? (
-                <div className="flex items-center justify-center">
-                  <div className="w-5 h-5 border-2 border-amber-600 border-t-transparent rounded-full animate-spin mr-2"></div>
-                  Procesando...
-                </div>
-              ) : (
-                <ButtonLoginGoogle/>
-              )}
-            </button>
+              <ButtonLoginGoogle/>
+            </div>
           </div>
 
           <div className="space-y-1 text-center p-6">

@@ -1,32 +1,51 @@
 import React, { useState } from 'react';
-import { Calendar, MapPin, Users } from 'lucide-react';
+import { Calendar, Users } from 'lucide-react';
+import { useNavigate } from 'react-router';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Hero = () => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [guests, setGuests] = useState('');
+  const navigate = useNavigate();
+
+  const searchAvailability = () => {
+    if (!checkIn || !checkOut || !guests) {
+      toast.warn('Por favor completa todos los campos antes de buscar.');
+      return;
+    }
+
+    const params = new URLSearchParams({
+      checkin: checkIn,
+      checkout: checkOut,
+      capacity: guests,
+    });
+
+    navigate(`/availability?${params.toString()}`);
+  };
 
   return (
     <section 
       id="home" 
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: "url('/hotel.jpeg')" }}
+      style={{ backgroundImage: "url('/exterior.webp')" }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg- bg-opacity-40"></div>
       
       <div className="container mx-auto px-4 z-10">
-        <div className="max-w-3xl mx-auto text-center animate-fade-in">
+        <div className="max-w-3xl mx-auto text-center animate-fade-in hidden md:block">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-white mb-4 leading-tight">
-            Descubra lujo y comodidad
+            Sumergéte en Paipa
           </h1>
-          <p className="text-lg md:text-xl text-white mb-8">
-            Encuentre y reserve su alojamiento perfecto con tarifas exclusivas y increíbles ofertas
+          <p className="text-3xl md:text-4xl text-white mb-8 font-medium">
+            Encuentre y reserve su alojamiento perfecto
           </p>
         </div>
 
         {/* Search Form */}
-        <div className="mt-12 max-w-5xl mx-auto animate-slide-up">
+        <div className="mt-12 md:max-w-5xl max-w-md mx-auto animate-slide-up">
           <div className="bg-white p-6 rounded-lg shadow-xl">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
@@ -69,7 +88,7 @@ const Hero = () => {
               </div>
 
               <div className="mt-6 text-center">
-              <button className="btn-primary px-8 py-3">
+              <button className="btn-primary px-8 py-3" onClick={searchAvailability}>
                 Buscar Disponibilidad
               </button>
             </div>
@@ -77,6 +96,16 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+      />  
     </section>
   );
 };

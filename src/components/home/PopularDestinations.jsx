@@ -9,6 +9,7 @@ const DestinationCard = ({ image, name, location, rating, price }) => {
           src={image} 
           alt={name}
           className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
           <p className="text-white font-medium">{location}</p>
@@ -38,7 +39,7 @@ const PopularDestinations = () => {
   const destinations = [
     {
       id: 1,
-      image: "/hotel1.jpeg",
+      image: "https://i.imgur.com/9iBl5AV.jpeg",
       name: "Luxury Ocean Suite",
       location: "Maldives",
       rating: 4.8,
@@ -46,7 +47,7 @@ const PopularDestinations = () => {
     },
     {
       id: 2,
-      image: "/hotel2.webp",
+      image: "https://i.imgur.com/0JHzfkg.jpeg",
       name: "Grand City View",
       location: "New York",
       rating: 4.7,
@@ -54,7 +55,7 @@ const PopularDestinations = () => {
     },
     {
       id: 3,
-      image: "/hotel3.jpeg",
+      image: "https://i.imgur.com/hWZItGA.jpeg",
       name: "Mountain Escape Resort",
       location: "Switzerland",
       rating: 4.9,
@@ -62,7 +63,7 @@ const PopularDestinations = () => {
     },
     {
       id: 4,
-      image: "/hotel4.jpeg",
+      image: "https://i.imgur.com/9ax5uSZ.jpeg",
       name: "Historic Palace Hotel",
       location: "Rome",
       rating: 4.6,
