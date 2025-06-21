@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="oauth2-redirect" element={<OAuth2RedirectHandler/>}/>
+          <Route path="/oauth2-redirect" element={<OAuth2RedirectHandler/>}/>
           <Route element={<ProtectedRouteVisitor/>}>
             <Route path="/register" element={<Register/>}/>
           </Route>
