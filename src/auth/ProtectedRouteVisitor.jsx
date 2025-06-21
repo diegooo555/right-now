@@ -7,7 +7,9 @@ const ProtectedRouteVisitor = () => {
     return <div>Cargando...</div>
   }
 
-
+  if (user?.roles?.some(role => role === "ROLE_VISITOR")) {
+    return <Outlet/>;
+  }
 
   return <Navigate to="/" />;
 };
