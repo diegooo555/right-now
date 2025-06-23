@@ -12,6 +12,7 @@ import OAuth2RedirectHandler from "./pages/Oauth"
 import ProtectedRouteVisitor from "./auth/ProtectedRouteVisitor"
 import Hotel from "./pages/Hotel"
 import BookingSuccess from "./pages/BookingSuccess"
+import ServiceSurvey from "./pages/ServiceSurvey"
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/oauth2-redirect" element={<OAuth2RedirectHandler/>}/>
+          <Route path="/survey" element={<ServiceSurvey/>}></Route>
           <Route element={<ProtectedRouteVisitor/>}>
             <Route path="/register" element={<Register/>}/>
           </Route>
