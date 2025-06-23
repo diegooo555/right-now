@@ -9,9 +9,6 @@ import {
   Shield,
   Sparkles,
   ArrowRight,
-  Building2,
-  Calendar,
-  Users,
   ThumbsUp,
   Award,
   Send
