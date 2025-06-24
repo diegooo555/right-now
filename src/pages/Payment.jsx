@@ -13,6 +13,21 @@ const Payment = () => {
 
   const { checkIn, checkOut, guests, room } = location.state || {};
 
+  const checkInDate = new Date(checkIn);
+  const checkOutDate = new Date(checkOut);
+
+  const formattedCheckIn = checkInDate.toLocaleDateString('es-CO', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  });
+
+  const formattedCheckOut = checkOutDate.toLocaleDateString('es-CO', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  });
+
   const startDate = new Date(checkIn);
   const endDate = new Date(checkOut);
   const numberOfNights = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
@@ -33,7 +48,7 @@ const Payment = () => {
           <div className="p-8">
             <div className="flex items-center gap-3 mb-6">
               <Shield className="w-8 h-8 text-amber-500" />
-              <h2 className="text-3xl font-serif font-semibold text-gray-800">Confirma tu Reserva</h2>
+              <h2 className="text-3xl font-serif font-semibold text-amber-600">Confirma tu Reserva</h2>
             </div>
 
             {/* Trust Message */}
@@ -66,24 +81,24 @@ const Payment = () => {
               <div className="flex items-center gap-3 text-gray-600">
                 <Calendar className="w-5 h-5 text-amber-500" />
                 <div>
-                  <p className="font-medium">Fechas de tu Estadía</p>
-                  <p>{checkIn} - {checkOut}</p>
-                  <p className="text-amber-600 font-medium">{nights?.toLocaleString()} {nights?.toLocaleString() === '1' ? 'noche' : 'noches'}</p>
+                  <p className="font-extrabold text-2xl text-amber-600">Fechas de tu Estadía</p>
+                  <p className="font-bold text-xl">{formattedCheckIn} - {formattedCheckOut}</p>
+                  <p className="text-amber-600 font-bold">{nights?.toLocaleString()} {nights?.toLocaleString() === '1' ? 'noche' : 'noches'}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 text-gray-600">
                 <Users className="w-5 h-5 text-amber-500" />
                 <div>
-                  <p className="font-medium">Huéspedes</p>
-                  <p>{guests} {guests === 1 ? 'persona' : 'personas'}</p>
+                  <p className="font-extrabold text-2xl text-amber-600">Huéspedes</p>
+                  <p className="text-amber-600 font-bold">{guests} {guests === 1 ? 'persona' : 'personas'}</p>
                 </div>
               </div>
             </div>
 
             {/* Price Breakdown */}
             <div className="border-t border-gray-100 pt-6 mb-8">
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">Desglose de Costos</h4>
+              <h4 className="text-lg font-bold text-gray-800 mb-4">Desglose de Costos</h4>
               <div className="space-y-3 text-gray-600">
                 <div className="flex justify-between">
                   <span>Precio por noche</span>
@@ -93,9 +108,9 @@ const Payment = () => {
                   <span>Número de {nights?.toLocaleString() === '1' ? 'noche' : 'noches'}</span>
                   <span className="font-medium">{nights?.toLocaleString()}</span>
                 </div>
-                <div className="flex justify-between text-lg text-gray-800 pt-3 border-t border-gray-200">
+                <div className="flex justify-between p-4 text-lg text-blue-800 pt-3 bg-blue-50 border border-blue-200 rounded-lg">
                   <span className="font-semibold">Costo Total de la Estadía</span>
-                  <span className="font-semibold">${totalPrice?.toLocaleString()} COP</span>
+                  <span className="font-semibold">${totalPrice?.toNumber().toLocaleString()} COP</span>
                 </div>
               </div>
 
@@ -108,14 +123,14 @@ const Payment = () => {
                       <div className="w-3 h-3 bg-amber-400 rounded-full"></div>
                       <span className="text-gray-700">Abono inicial (hoy)</span>
                     </div>
-                    <span className="font-medium text-gray-800">${(totalPrice/2)?.toLocaleString()} COP</span>
+                    <span className="font-medium text-gray-800">${half?.toNumber().toLocaleString()} COP</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
                       <span className="text-gray-700">Pago restante (en el hotel)</span>
                     </div>
-                    <span className="font-medium text-gray-800">${(totalPrice/2)?.toLocaleString()} COP</span>
+                    <span className="font-medium text-gray-800">${half?.toNumber().toLocaleString()} COP</span>
                   </div>
                 </div>
                 
@@ -130,7 +145,7 @@ const Payment = () => {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-bold text-amber-600">${half?.toLocaleString()}</p>
+                      <p className="text-2xl font-bold text-amber-600">${half?.toNumber().toLocaleString()}</p>
                       <p className="text-sm text-amber-700 font-medium">COP</p>
                     </div>
                   </div>
