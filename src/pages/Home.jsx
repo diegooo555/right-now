@@ -6,6 +6,7 @@ import SpecialOffers from "../components/home/SpecialOffers";
 import Amenities from "../components/home/Amenities";
 import Testimonials from "../components/home/Testimonials";
 import Footer from "../components/home/Footer";
+import { ToastContainer } from "react-toastify";
 import { getReservations } from "../api/reservation";
 
 function Home() {
@@ -21,6 +22,15 @@ function Home() {
       <Testimonials />
       <Footer />
       <button onClick={() => getReservations("1")}>Get Reservations</button>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+      />  
     </div>
   );
 }
