@@ -2,6 +2,7 @@ import UserContext from "./user.js";
 import { useState, useEffect } from "react";
 import { jwtDecode } from 'jwt-decode';
 import { refreshAccesToken } from "../api/user.js"; 
+import { toast } from "react-toastify";
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -12,6 +13,7 @@ export const UserProvider = ({ children }) => {
       const token = localStorage.getItem('alfretyuiopwerqazxcnosrew');
       if (!token) {
         setLoading(false);
+        toast.success("Inicia sesión para continuar");
         return;
       }
 
