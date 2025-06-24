@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, Users } from 'lucide-react';
 import { useNavigate } from 'react-router';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Hero = () => {
@@ -11,8 +11,27 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const searchAvailability = () => {
-    if (!checkIn || !checkOut || !guests) {
-      toast.warn('Por favor completa todos los campos antes de buscar.');
+    if (!checkIn || !checkOut || !guests || guests <= 0) {
+      toast.info('Por favor completa todos los campos antes de buscar.');
+      return;
+    }
+
+    const checkInDate = new Date(checkIn);
+    const checkOutDate = new Date(checkOut);
+  
+    if (isNaN(checkInDate.getTime()) || isNaN(checkOutDate.getTime())) {
+      toast.error('Formato de fecha inválido.');
+      return;
+    }
+  
+    if (checkOutDate <= checkInDate) {
+      toast.error('La fecha de salida debe ser posterior a la fecha de entrada.');
+      return;
+    }
+
+    const token = localStorage.getItem('alfretyuiopwerqazxcnosrew');
+    if (!token) {
+      toast.info("Inicia sesión para continuar");
       return;
     }
 
@@ -97,15 +116,6 @@ const Hero = () => {
         </div>
       </div>
 
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        pauseOnHover
-        theme="colored"
-      />  
     </section>
   );
 };
