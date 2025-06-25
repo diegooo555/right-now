@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { generateSignature } from '../api/wompi.js';
 import { v4 as uuidv4 } from 'uuid';
-import { useLocation } from 'react-router';
 
 const WompiWidget = ({
   amount,
@@ -18,11 +17,8 @@ const WompiWidget = ({
 
   const referenceRef = useRef(`${uuidv4()}_${Date.now()}`);
   const reference = referenceRef.current;
-
-  const location = useLocation();
-  const { checkIn, checkOut, guests, room } = location.state || {};
   
-  const redirectUrl = window.location.origin + `/booking?reference=${reference}&checkin=${checkIn}&checkout=${checkOut}&guests=${guests}&room=${room?.id}&hotel=${room?.hotel?.id}&price=${totalPrice}&half=${amount}`;
+  const redirectUrl = window.location.origin + `/booking?reference=${reference}&price=${totalPrice}&half=${amount}`;
 
   const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY_TEST;
 

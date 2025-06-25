@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { createReservation } from '../api/reservation';
 import { 
   CheckCircle, 
   Mail,  
@@ -14,41 +13,15 @@ import {
 const BookingSuccess = () => {
   const [searchParams] = useSearchParams();
   
-  // Extraer datos de la URL
   const reference = searchParams.get('reference');
-  const checkin = searchParams.get('checkin');
-  const checkout = searchParams.get('checkout');
-  const guests = searchParams.get('guests');
-  const price = searchParams.get('price');
-  const half = searchParams.get('half');
-  const hotelId = searchParams.get('hotel');
-  const roomId = searchParams.get('room');
+  const price = Number(searchParams.get('price')).toLocaleString('es-CO', { currency: 'COP' });
+  // Assuming half is the same as price
+  const half = Number(searchParams.get('half')).toLocaleString('es-CO', { currency: 'COP' });
 
-  // Datos simulados del hotel y habitación (en una app real vendrían de una API)
-  const hotelData = {
-    name: "Hotel Boutique Dorado",
-    address: "Calle 123 #45-67, Zona Rosa, Bogotá",
-    phone: "+57 1 234-5678",
-    email: "reservas@hoteldorado.com"
+  const enterpriseData = {
+    phone: "+57 3132827158",
+    email: "villalibertad76@gmail.com"
   };
-
-  useEffect(() => {
-    const reservationDto = {
-      email: '',
-      hotelId,
-      roomId,
-      numPersons: Number(guests),
-      checkIn: checkin,
-      checkOut: checkout,
-      reference,
-      total: Number(price),
-      deposit: Number(half),
-    }
-
-    console.log(reservationDto);
-
-    createReservation(reservationDto);
-  }, [])
 
 
   return (
@@ -129,7 +102,7 @@ const BookingSuccess = () => {
                         <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                         <span className="text-gray-700">Pagado</span>
                       </div>
-                      <span className="font-semibold text-green-600">${half} COP</span>
+                      <span className="font-semibold text-green-600">{half} COP</span>
                     </div>
                     
                     <div className="flex justify-between items-center">
@@ -137,7 +110,7 @@ const BookingSuccess = () => {
                         <div className="w-3 h-3 bg-amber-400 rounded-full"></div>
                         <span className="text-gray-700">Pendiente (en el hotel)</span>
                       </div>
-                      <span className="font-medium text-amber-600">${half} COP</span>
+                      <span className="font-medium text-amber-600">{half} COP</span>
                     </div>
                   </div>
                 </div>
@@ -177,7 +150,7 @@ const BookingSuccess = () => {
             {/* Contact Support */}
             <div className="text-center mt-8 pt-6 border-t border-gray-100">
               <p className="text-gray-600 text-sm">
-                ¿Necesitas ayuda? Contáctanos al {hotelData.phone} o envía un email a {hotelData.email}
+                ¿Necesitas ayuda? Contáctanos al {enterpriseData.phone} o envía un email a {enterpriseData.email}
               </p>
             </div>
           </div>

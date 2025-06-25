@@ -83,7 +83,7 @@ const Payment = () => {
                 <div>
                   <p className="font-extrabold text-2xl text-amber-600">Fechas de tu Estadía</p>
                   <p className="font-bold text-xl">{formattedCheckIn} - {formattedCheckOut}</p>
-                  <p className="text-amber-600 font-bold">{nights?.toLocaleString()} {nights?.toLocaleString() === '1' ? 'noche' : 'noches'}</p>
+                  <p className="text-amber-600 font-bold">{nights?.toLocaleString('es-CO', { currency: 'COP' })} {nights?.toLocaleString() === '1' ? 'noche' : 'noches'}</p>
                 </div>
               </div>
 
@@ -102,7 +102,7 @@ const Payment = () => {
               <div className="space-y-3 text-gray-600">
                 <div className="flex justify-between">
                   <span>Precio por noche</span>
-                  <span className="font-medium">${room?.price?.toLocaleString()} COP</span>
+                  <span className="font-medium">${room?.price?.toLocaleString('es-CO', { currency: 'COP' })} COP</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Número de {nights?.toLocaleString() === '1' ? 'noche' : 'noches'}</span>
@@ -110,7 +110,7 @@ const Payment = () => {
                 </div>
                 <div className="flex justify-between p-4 text-lg text-blue-800 pt-3 bg-blue-50 border border-blue-200 rounded-lg">
                   <span className="font-semibold">Costo Total de la Estadía</span>
-                  <span className="font-semibold">${totalPrice?.toNumber().toLocaleString()} COP</span>
+                  <span className="font-semibold">${totalPrice?.toNumber().toLocaleString('es-CO', { currency: 'COP' })} COP</span>
                 </div>
               </div>
 
@@ -123,14 +123,14 @@ const Payment = () => {
                       <div className="w-3 h-3 bg-amber-400 rounded-full"></div>
                       <span className="text-gray-700">Abono inicial (hoy)</span>
                     </div>
-                    <span className="font-medium text-gray-800">${half?.toNumber().toLocaleString()} COP</span>
+                    <span className="font-medium text-gray-800">${half?.toNumber().toLocaleString('es-CO', { currency: 'COP' })} COP</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
                       <span className="text-gray-700">Pago restante (en el hotel)</span>
                     </div>
-                    <span className="font-medium text-gray-800">${half?.toNumber().toLocaleString()} COP</span>
+                    <span className="font-medium text-gray-800">${half?.toNumber().toLocaleString('es-CO', { currency: 'COP' })} COP</span>
                   </div>
                 </div>
                 
@@ -145,7 +145,7 @@ const Payment = () => {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-bold text-amber-600">${half?.toNumber().toLocaleString()}</p>
+                      <p className="text-2xl font-bold text-amber-600">${half?.toNumber().toLocaleString('es-CO', { currency: 'COP' })}</p>
                       <p className="text-sm text-amber-700 font-medium">COP</p>
                     </div>
                   </div>
