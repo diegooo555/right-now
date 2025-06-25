@@ -1,45 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import { getRoomsAvailable } from '../api/hotel.js';
 import { Loader2, Calendar, Users } from 'lucide-react';
 import Room from '../components/hotel/Room';
 
 const Availability = () => {
   const [searchParams] = useSearchParams();
-  const [rooms, setRooms] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const checkIn = searchParams.get('checkin');
   const checkOut = searchParams.get('checkout');
   const guests = searchParams.get('capacity');
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchRooms = async () => {
-      try {
-        const data = await getRoomsAvailable(checkIn, checkOut, guests);
-        setRooms(data);
-      } catch (err) {
-        console.error('Error loading rooms:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchRooms();
-  }, [checkIn, checkOut, guests]);
+  const {
+    data: rooms = [],
+    isLoading,
+    isError,
+    error
+  } = useQuery({
+    queryKey: ['availableRooms', checkIn, checkOut, guests],
+    queryFn: () => getRoomsAvailable(checkIn, checkOut, guests),
+    enabled: Boolean(checkIn && checkOut && guests),
+    staleTime: 1000 * 60 * 5,
+  });
 
   const handleReserve = (room) => {
-    console.log('Reserving room:', room);
-    navigate(`/payment`, {
-      state: {
-        checkIn,
-        checkOut,
-        guests,
-        room
-      }
+    navigate('/payment', {
+      state: { checkIn, checkOut, guests, room }
     });
-
   };
 
   return (
@@ -63,12 +52,17 @@ const Availability = () => {
         </div>
 
         {/* Loading State */}
-        {loading ? (
+        {isLoading ? (
           <div className="flex justify-center items-center min-h-[400px]">
             <div className="flex flex-col items-center gap-4">
               <Loader2 className="animate-spin h-12 w-12 text-amber-500" />
               <p className="text-gray-600">Buscando las mejores habitaciones...</p>
             </div>
+          </div>
+        ) : isError ? (
+          <div className="text-center py-16">
+            <p className="text-xl text-red-600">Error al cargar las habitaciones.</p>
+            <p className="text-gray-500 mt-2">{error?.message || 'Inténtalo de nuevo más tarde.'}</p>
           </div>
         ) : rooms.length === 0 ? (
           <div className="text-center py-16">
