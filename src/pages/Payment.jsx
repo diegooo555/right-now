@@ -3,6 +3,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useUserContext } from "../context/useUsercontext.js";
 import { Calendar, Users, CreditCard, Building2, Shield, CheckCircle } from 'lucide-react';
 import { Decimal } from 'decimal.js';
+import BotonPersonalizado from "../wompi/BotonPersonalizado.jsx";
 
 const Payment = () => {
   const { user } = useUserContext();
@@ -162,7 +163,7 @@ const Payment = () => {
               <p className="text-sm text-gray-600 mb-4">
                 Tu información está protegida con encriptación de grado bancario. Procesamos tu pago de forma segura.
               </p>
-              <WompiWidget
+              <BotonPersonalizado
                 amount={amountForWompi}
                 customerData={{
                   email: user?.sub || '',

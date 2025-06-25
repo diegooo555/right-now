@@ -18,7 +18,7 @@ const WompiWidget = ({
   const referenceRef = useRef(`${uuidv4()}_${Date.now()}`);
   const reference = referenceRef.current;
   
-  const redirectUrl = window.location.origin + `/booking?reference=${reference}&price=${totalPrice}&half=${amount.slice(0, -2)}`;
+  const redirectUrl = window.location.origin + `/booking?reference=${reference}&price=${totalPrice}&half=${amount.slice(0, -2)}`; 
 
   const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY_TEST;
 
