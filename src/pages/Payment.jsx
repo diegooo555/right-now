@@ -14,6 +14,9 @@ const Payment = () => {
 
   const { checkIn, checkOut, guests, room } = location.state || {};
 
+  console.log(user);
+  console.log(location.state);
+
   const checkInDate = new Date(checkIn);
   const checkOutDate = new Date(checkOut);
 
@@ -38,6 +41,18 @@ const Payment = () => {
   const half = totalPrice.div(2);
   const amountForWompi = half.toDecimalPlaces(0).toString() + "00";
   const totalPriceStr = totalPrice.toDecimalPlaces(0).toString();
+
+  const reservationData = {
+    email: user?.sub || '',
+    hotelId: room?.hotel?.id || '',
+    roomId: room?.id || '',
+    numPersons: guests,
+    checkIn,
+    checkOut,
+    reference: '',
+    total: totalPrice,
+    deposit: half,
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-amber-50 py-12 px-4">
@@ -170,6 +185,7 @@ const Payment = () => {
                   name: user?.given_name || '',
                 }}
                 totalPrice={totalPriceStr}
+                reservationData={reservationData}
               />
             </div>
 

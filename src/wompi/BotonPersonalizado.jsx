@@ -1,15 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { generateSignature } from '../api/wompi';
+import { createReservation } from '../api/reservation';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router';
 
 const BotonPersonalizado = ({
   amount,
   currency = 'COP',
- expirationTime,
+  expirationTime,
   customerData = {},
   taxes = {},
   totalPrice,
+  reservationData = {}
 }) => {
   const [signature, setSignature] = useState('');
   const [error, setError] = useState(null);
@@ -19,6 +21,7 @@ const BotonPersonalizado = ({
 
     const referenceRef = useRef(`${uuidv4()}_${Date.now()}`);
     const reference = referenceRef.current;
+    reservationData.reference = reference;
     
     const redirectUrl = window.location.origin + `/booking?reference=${reference}&price=${totalPrice}&half=${amount.slice(0, -2)}`; 
   
@@ -68,13 +71,15 @@ const BotonPersonalizado = ({
   }, [amount, currency]);
 
   // Función para crear y dar inicio al widget
-  const handleClick = () => {
+  const handleClick = async () => {
     if (isLoading) return;
 
     if (!signature) {
       console.error("Firma sin preparar.");
       return;
     }
+
+    await createReservation(reservationData);
 
     // Instanciar el widget de pago según la documentación de Wompi
     const checkout = new window.WidgetCheckout({ 
@@ -85,11 +90,11 @@ const BotonPersonalizado = ({
       signature: { integrity: signature },
       redirectUrl,
       expirationTime,
-
     });
 
     checkout.open(function (result) {
-      if (result.transaction) {
+      console.log(result);
+      if (result?.transaction) {
         console.log("Transacción creada.", result.transaction);
         navigate(`/booking?reference=${reference}&price=${totalPrice}&half=${amount.slice(0, -2)}`);
         
