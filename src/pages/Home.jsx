@@ -22,15 +22,6 @@ function Home() {
       <Testimonials />
       <Footer />
       <button onClick={() => getReservations("1")}>Get Reservations</button>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        pauseOnHover
-        theme="colored"
-      />  
     </div>
   );
 }

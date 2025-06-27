@@ -3,8 +3,10 @@ import { generateSignature } from '../api/wompi';
 import { createReservation } from '../api/reservation';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router';
+import { useMutation } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 
-const BotonPersonalizado = ({
+const BuyButton = ({
   amount,
   currency = 'COP',
   expirationTime,
@@ -18,7 +20,10 @@ const BotonPersonalizado = ({
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-
+  const reservationMutation = useMutation({
+    mutationFn: createReservation,
+  });
+  // 
     const referenceRef = useRef(`${uuidv4()}_${Date.now()}`);
     const reference = referenceRef.current;
     reservationData.reference = reference;
@@ -79,28 +84,32 @@ const BotonPersonalizado = ({
       return;
     }
 
-    await createReservation(reservationData);
+    reservationMutation.mutate(reservationData, {
+      onSuccess: () => {
+        // Instanciar el widget SOLO si la reserva fue creada con éxito
+        const checkout = new window.WidgetCheckout({ 
+          currency, 
+          amountInCents: amount, 
+          reference, 
+          publicKey: PUBLIC_KEY, 
+          signature: { integrity: signature },
+          redirectUrl,
+          expirationTime,
+        });
+    
+        checkout.open(function (result) {
+          console.log(result);
+          if (result?.transaction) {
+            console.log("Transacción creada.", result.transaction);
+            navigate(`/booking?reference=${reference}&price=${totalPrice}&half=${amount.slice(0, -2)}`);
+          } else {
+            console.error("Transacción sin completar.", result);
+          }
+        });
+      },
 
-    // Instanciar el widget de pago según la documentación de Wompi
-    const checkout = new window.WidgetCheckout({ 
-      currency, 
-      amountInCents: amount, 
-      reference, 
-      publicKey: PUBLIC_KEY, 
-      signature: { integrity: signature },
-      redirectUrl,
-      expirationTime,
-    });
-
-    checkout.open(function (result) {
-      console.log(result);
-      if (result?.transaction) {
-        console.log("Transacción creada.", result.transaction);
-        navigate(`/booking?reference=${reference}&price=${totalPrice}&half=${amount.slice(0, -2)}`);
-        
-      } else {
-        console.error("Transacción sin completar.", result);
-        
+      onError: () => {
+        toast.error("Error al crear la reserva. Por favor, inténtalo de nuevo.");
       }
     });
   };
@@ -116,5 +125,5 @@ const BotonPersonalizado = ({
   );
 }
 
-export default BotonPersonalizado;
+export default BuyButton;
 

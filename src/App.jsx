@@ -21,8 +21,9 @@ function App() {
 
   return (
     <BrowserRouter>
-    <QueryClientProvider client={queryClient}>
+    
       <UserProvider>
+      <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
@@ -40,8 +41,9 @@ function App() {
             <Route path="/booking" element={<BookingSuccess/>}/>
           </Route>
         </Routes>
-      </UserProvider>
       </QueryClientProvider>
+      </UserProvider>
+      
     </BrowserRouter>
   )
 }

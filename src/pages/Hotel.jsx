@@ -67,15 +67,6 @@ function Hotel() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-amber-50 p-6">
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        pauseOnHover
-        theme="colored"
-      />
       <div className="max-w-6xl mx-auto">
         <div className="mb-8 flex justify-between items-center">
           <div>

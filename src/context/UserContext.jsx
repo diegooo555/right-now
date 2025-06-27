@@ -2,7 +2,7 @@ import UserContext from "./user.js";
 import { useState, useEffect } from "react";
 import { jwtDecode } from 'jwt-decode';
 import { refreshAccesToken } from "../api/user.js"; 
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -70,6 +70,15 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider value={{ user, setUser, loading }}>
       {children}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+      />  
     </UserContext.Provider>
   );
 };
