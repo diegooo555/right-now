@@ -11,12 +11,11 @@ const ProtectedAdmin = () => {
     }
 
 
-    if (!user?.roles?.some(role => role === "ROLE_USER")) {
-        console.log("redirecionando a register")
-        return <Navigate to="/register" />;
-      }
+    if (!user?.roles?.some(role => role === "ROLE_ADMIN")) {
+        return <Navigate to="/" />;
+    }
       
-      return user ? <Outlet/> : <Navigate to="/login" />;
+    return user ? <Outlet/> : <Navigate to="/login" />;
 }
 
 export default ProtectedAdmin
