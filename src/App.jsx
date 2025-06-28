@@ -14,6 +14,7 @@ import ProtectedRouteVisitor from "./auth/ProtectedRouteVisitor"
 import Hotel from "./pages/Hotel"
 import BookingSuccess from "./pages/BookingSuccess"
 import ServiceSurvey from "./pages/ServiceSurvey"
+import ProtectedAdmin from "./auth/ProtectedAdmin";
 
 function App() {
 
@@ -33,12 +34,14 @@ function App() {
             <Route path="/register" element={<Register/>}/>
           </Route>
           <Route element={<ProtectedRouteUser/>}>
-            <Route path="/hotel" element={<Hotel/>}/>
             <Route path="/reserve" element={<Reserve/>}/>
             <Route path="/reservations" element={<Reservations/>}/>
             <Route path="/availability" element={<Availability/>}/>
             <Route path="/payment" element={<Payment/>}/>
             <Route path="/booking" element={<BookingSuccess/>}/>
+          </Route>
+          <Route element={<ProtectedAdmin/>}>
+            <Route path="/hotel" element={<Hotel/>}/>
           </Route>
         </Routes>
       </QueryClientProvider>
