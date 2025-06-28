@@ -1,0 +1,22 @@
+import React from 'react'
+import { useUserContext } from '../context/useUsercontext'
+import { Navigate, Outlet } from "react-router-dom";
+
+const ProtectedAdmin = () => {
+
+    const { user, loading } = useUserContext();
+
+    if(loading){
+        return <div>Cargando...</div>
+    }
+
+
+    if (!user?.roles?.some(role => role === "ROLE_USER")) {
+        console.log("redirecionando a register")
+        return <Navigate to="/register" />;
+      }
+      
+      return user ? <Outlet/> : <Navigate to="/login" />;
+}
+
+export default ProtectedAdmin
