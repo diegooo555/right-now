@@ -43,7 +43,7 @@ const Navbar = () => {
             <a href="#amenities" className="text-sm font-medium hover:text-amber-400 transition-colors">Amenidades</a>
             <a href="#testimonials" className="text-sm font-medium hover:text-amber-400 transition-colors">Testimonios</a>
             <a href="#contact" className="text-sm font-medium hover:text-amber-400 transition-colors">Contacto</a>
-            <Link to="/hotel" className="text-sm font-medium hover:text-amber-400 transition-colors">Mis Reservas</Link>
+            <Link to="/reservations" className="text-sm font-medium hover:text-amber-400 transition-colors">Mis Reservas</Link>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -69,19 +69,13 @@ const Navbar = () => {
       <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
         <div className="px-4 pt-2 pb-4 bg-white shadow-lg">
           <div className="flex flex-col space-y-3">
-            <a href="#home" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Home</a>
-            <a href="#destinations" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Destinations</a>
-            <a href="#offers" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Special Offers</a>
-            <a href="#amenities" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Amenities</a>
-            <a href="#testimonials" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Testimonials</a>
-            <a href="#contact" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Contact</a>
-            <div className="pt-2 border-t border-gray-200">
-              <a href="#" className="flex items-center text-sm font-medium py-2 hover:text-gold-600">
-                <User className="h-4 w-4 mr-1" />
-                <span>Sign In</span>
-              </a>
-              <a href="#book" className="block mt-3 btn-primary text-center text-sm" onClick={() => setIsOpen(false)}>Book Now</a>
-            </div>
+            <Link to="/" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Inicio</Link>
+            <a href="#destinations" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Destinos</a>
+            <a href="#offers" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Ofertas</a>
+            <a href="#amenities" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Amenidades</a>
+            <a href="#testimonials" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Testimonios</a>
+            <a href="#contact" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Contacto</a>
+            <Link to="/reservations" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Mis Reservas</Link>  
           </div>
         </div>
       </div>
