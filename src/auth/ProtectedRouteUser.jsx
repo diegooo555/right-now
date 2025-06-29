@@ -8,12 +8,11 @@ const ProtectedRouteUser = () => {
     return <div>Cargando...</div>
   }
 
-  if (!user?.roles?.some(role => role === "ROLE_USER")) {
-    console.log("redirecionando a register")
-    return <Navigate to="/register" />;
+  if (user?.roles?.some(role => role === "ROLE_USER")) {
+    return <Outlet />;
   }
   
-  return user ? <Outlet/> : <Navigate to="/login" />;
+  return <Navigate to="/register" />;
 };
 
 export default ProtectedRouteUser;
