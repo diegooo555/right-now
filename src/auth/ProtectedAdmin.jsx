@@ -11,11 +11,11 @@ const ProtectedAdmin = () => {
     }
 
 
-    if (!user?.roles?.some(role => role === "ROLE_ADMIN")) {
-        return <Navigate to="/" />;
+    if (user?.roles?.some(role => role === "ROLE_ADMIN")) {
+        return <Outlet/>;
     }
       
-    return user ? <Outlet/> : <Navigate to="/login" />;
+    return <Navigate to="/"/>;
 }
 
 export default ProtectedAdmin
