@@ -5,7 +5,7 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Reserve from "./pages/Reserve"
 import Register from "./pages/Register"
-import Reservations from "./pages/Reservations"
+import Reservations from "./pages/Reservations";
 import ProtectedRouteUser from "./auth/ProtectedRouteUser"
 import Payment from "./pages/Payment"
 import Availability from "./pages/Availability"

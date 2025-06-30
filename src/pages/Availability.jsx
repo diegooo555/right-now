@@ -2,7 +2,7 @@ import React from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getRoomsAvailable } from '../api/hotel.js';
-import { Loader2, Calendar, Users } from 'lucide-react';
+import { Loader2, Calendar, Users, Loader } from 'lucide-react';
 import Room from '../components/hotel/Room';
 
 const Availability = () => {

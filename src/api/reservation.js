@@ -1,8 +1,8 @@
 import axiosInstance from "./axiosInstance.js";
 
-export const getReservations = async (userId) => {
+export const getReservations = async (email) => {
     try {
-        const response = await axiosInstance.get(`/reservations/${userId}`);
+        const response = await axiosInstance.get(`/reservations/${email}`);
         console.log(response.data)
         return response.data;
     } catch (error) {
