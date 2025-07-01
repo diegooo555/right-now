@@ -8,7 +8,7 @@ import Reservations from "./pages/Reservations";
 import ProtectedRouteUser from "./auth/ProtectedRouteUser"
 import Payment from "./pages/Payment"
 import Availability from "./pages/Availability"
-import OAuth2RedirectHandler from "./pages/Oauth"
+import OAuth2RedirectHandler from "./auth/Oauth"
 import ProtectedRouteVisitor from "./auth/ProtectedRouteVisitor"
 import Hotel from "./pages/Hotel"
 import BookingSuccess from "./pages/BookingSuccess"
