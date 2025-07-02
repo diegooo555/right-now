@@ -6,7 +6,6 @@ import SpecialOffers from "../components/home/SpecialOffers";
 import Amenities from "../components/home/Amenities";
 import Testimonials from "../components/home/Testimonials";
 import Footer from "../components/home/Footer";
-import { ToastContainer } from "react-toastify";
 import { getReservations } from "../api/reservation";
 
 function Home() {

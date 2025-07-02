@@ -51,3 +51,13 @@ export const getRoomById = async (roomId) => {
         throw error;
     }
 }
+
+export const getRoomsByHotelId = async (hotelId) => {
+    try {
+        const response = await axiosInstance.get(`rooms/${hotelId}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching rooms by hotel ID:", error);
+        throw error;
+    }
+}

@@ -1,21 +1,22 @@
 import React, { useState } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 import {
   Star,
   Heart,
   MessageSquare,
-  CheckCircle,
-  AlertCircle,
   Shield,
   Sparkles,
-  ArrowRight,
   ThumbsUp,
   Award,
   Send,
 } from "lucide-react";
+import { createReview } from "../api/review.js";
+import { toast } from "react-toastify";
 
 const ServiceSurvey = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const reference = searchParams.get("reference");
 
   const [formData, setFormData] = useState({
@@ -30,9 +31,6 @@ const ServiceSurvey = () => {
     additionalComments: "",
   });
 
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleRatingChange = (category, rating) => {
     setFormData((prev) => ({
@@ -48,42 +46,50 @@ const ServiceSurvey = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const mutation = useMutation({
+    mutationFn: (reviewData) => createReview(reviewData),
+    onSuccess: () => {
+      toast("¡Encuesta enviada con éxito!", {
+        type: "success",
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true});
+
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      
+    },
+    onError: (error) => {
+      toast.error("Error al enviar la encuesta: ");
+      console.log(error);
+    },
+  });
+
+  const validateForm = () => {
+    const { overallRating, cleanlinessRating, staffRating, facilitiesRating, valueRating, wouldRecommend, bestAspect, improvementSuggestion } = formData;
+    return (
+      overallRating > 0 &&
+      cleanlinessRating > 0 &&
+      staffRating > 0 &&
+      facilitiesRating > 0 &&
+      valueRating > 0 &&
+      wouldRecommend.trim() !== "" &&
+      bestAspect.trim() !== "" &&
+      improvementSuggestion.trim() !== ""
+    );
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setSuccessMessage("");
-    setErrorMessage("");
-    setIsLoading(true);
-
-    try {
-      // Simular envío de encuesta
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      setSuccessMessage(
-        "¡Gracias por tu opinión! Tu feedback nos ayuda a mejorar continuamente."
-      );
-
-      // Limpiar formulario después del éxito
-      setTimeout(() => {
-        setFormData({
-          overallRating: 0,
-          cleanlinessRating: 0,
-          staffRating: 0,
-          facilitiesRating: 0,
-          valueRating: 0,
-          wouldRecommend: "",
-          bestAspect: "",
-          improvementSuggestion: "",
-          additionalComments: "",
-        });
-      }, 3000);
-    } catch (error) {
-      console.error("Error al enviar encuesta:", error);
-      setErrorMessage(
-        "Ocurrió un error al enviar tu opinión. Por favor, intenta nuevamente."
-      );
-    } finally {
-      setIsLoading(false);
+    if (!validateForm()) {
+      toast.warn("Por favor completa todos los campos obligatorios");
+      return;
     }
+    mutation.mutate({ reference, ...formData });
   };
 
   const StarRating = ({ rating, onRatingChange, label }) => {
@@ -124,7 +130,6 @@ const ServiceSurvey = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-amber-100 py-12 px-4">
-      {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-50/50 to-transparent">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(245,158,11,0.1),transparent_50%)]" />
@@ -132,7 +137,6 @@ const ServiceSurvey = () => {
 
       <div className="relative max-w-4xl mx-auto">
         <div className="bg-white/80 backdrop-blur-sm shadow-2xl rounded-3xl border border-amber-100/50 overflow-hidden">
-          {/* Header with gradient */}
           <div className="h-2 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500" />
 
           <div className="p-8">
@@ -165,7 +169,6 @@ const ServiceSurvey = () => {
               )}
             </div>
 
-            {/* Trust Badge */}
             <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-xl p-4 mb-8">
               <div className="flex items-center gap-3">
                 <Shield className="w-5 h-5 text-amber-600 flex-shrink-0" />
@@ -181,40 +184,7 @@ const ServiceSurvey = () => {
               </div>
             </div>
 
-            {/* Success/Error Messages */}
-            {successMessage && (
-              <div className="mb-8 bg-green-50 border-2 border-green-200 rounded-xl p-6">
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
-                  <div>
-                    <p className="text-green-800 font-medium">
-                      {successMessage}
-                    </p>
-                    <div className="mt-4">
-                      <Link
-                        to="/"
-                        className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
-                      >
-                        Volver al Inicio
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {errorMessage && (
-              <div className="mb-8 bg-red-50 border-2 border-red-200 rounded-xl p-6">
-                <div className="flex items-center gap-3">
-                  <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0" />
-                  <p className="text-red-800 font-medium">{errorMessage}</p>
-                </div>
-              </div>
-            )}
-
             <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Overall Rating */}
               <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border-2 border-amber-200 rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <Award className="w-6 h-6 text-amber-600" />
@@ -231,7 +201,6 @@ const ServiceSurvey = () => {
                 />
               </div>
 
-              {/* Detailed Ratings */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-6">
                   <StarRating
@@ -270,38 +239,25 @@ const ServiceSurvey = () => {
                 </div>
               </div>
 
-              {/* Recommendation */}
               <div className="space-y-4">
                 <label className="block text-sm font-semibold text-gray-700">
                   ¿Recomendarías este alojamiento a otros viajeros?
                 </label>
-                <div className="flex gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {[
-                    {
-                      value: "definitely",
-                      label: "Definitivamente sí",
-                      color: "green",
-                    },
-                    {
-                      value: "probably",
-                      label: "Probablemente sí",
-                      color: "amber",
-                    },
-                    { value: "maybe", label: "Tal vez", color: "gray" },
-                    {
-                      value: "probably_not",
-                      label: "Probablemente no",
-                      color: "orange",
-                    },
-                    {
-                      value: "definitely_not",
-                      label: "Definitivamente no",
-                      color: "red",
-                    },
+                    { value: "definitely", label: "Definitivamente sí" },
+                    { value: "probably", label: "Probablemente sí" },
+                    { value: "maybe", label: "Tal vez" },
+                    { value: "probably_not", label: "Probablemente no" },
+                    { value: "definitely_not", label: "Definitivamente no" },
                   ].map((option) => (
                     <label
                       key={option.value}
-                      className="flex items-center cursor-pointer"
+                      className={`flex items-center gap-2 border px-4 py-2 rounded-lg cursor-pointer transition ${
+                        formData.wouldRecommend === option.value
+                          ? "bg-amber-100 border-amber-400 text-amber-700 font-semibold"
+                          : "bg-white border-gray-200 hover:border-amber-300"
+                      }`}
                     >
                       <input
                         type="radio"
@@ -311,26 +267,12 @@ const ServiceSurvey = () => {
                         onChange={handleInputChange}
                         className="sr-only"
                       />
-                      <div
-                        className={`w-4 h-4 rounded-full border-2 mr-2 transition-all duration-200 ${
-                          formData.wouldRecommend === option.value
-                            ? `bg-${option.color}-500 border-${option.color}-500`
-                            : "border-gray-300 hover:border-amber-400"
-                        }`}
-                      >
-                        {formData.wouldRecommend === option.value && (
-                          <div className="w-full h-full rounded-full bg-white scale-50"></div>
-                        )}
-                      </div>
-                      <span className="text-sm text-gray-700">
-                        {option.label}
-                      </span>
+                      <span>{option.label}</span>
                     </label>
                   ))}
                 </div>
               </div>
 
-              {/* Text Inputs */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="block text-sm font-semibold text-gray-700">
@@ -371,7 +313,6 @@ const ServiceSurvey = () => {
                 </div>
               </div>
 
-              {/* Additional Comments */}
               <div className="space-y-2">
                 <label className="block text-sm font-semibold text-gray-700">
                   Comentarios Adicionales (Opcional)
@@ -391,24 +332,16 @@ const ServiceSurvey = () => {
                 </div>
               </div>
 
-              {/* Submit Button */}
               <div className="pt-6">
                 <button
                   type="submit"
-                  disabled={isLoading || formData.overallRating === 0}
+                  disabled={formData.overallRating === 0}
                   className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold py-4 rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2 group"
                 >
-                  {isLoading ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Enviando tu Opinión...
-                    </>
-                  ) : (
                     <>
                       <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                       Enviar Encuesta
                     </>
-                  )}
                 </button>
 
                 {formData.overallRating === 0 && (
@@ -420,7 +353,6 @@ const ServiceSurvey = () => {
               </div>
             </form>
 
-            {/* Footer */}
             <div className="mt-8 pt-6 border-t border-gray-100">
               <p className="text-center text-xs text-gray-500 leading-relaxed">
                 Gracias por tomarte el tiempo de compartir tu experiencia con
@@ -434,7 +366,6 @@ const ServiceSurvey = () => {
           </div>
         </div>
 
-        {/* Decorative Elements */}
         <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-amber-200/30 to-yellow-200/30 rounded-full blur-xl" />
         <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-amber-300/20 to-yellow-300/20 rounded-full blur-xl" />
       </div>

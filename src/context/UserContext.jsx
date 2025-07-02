@@ -72,7 +72,7 @@ export const UserProvider = ({ children }) => {
       {children}
       <ToastContainer
         position="top-right"
-        autoClose={3000}
+        autoClose={2300}
         hideProgressBar={false}
         newestOnTop
         closeOnClick
