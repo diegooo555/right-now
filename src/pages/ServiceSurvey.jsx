@@ -57,10 +57,7 @@ const ServiceSurvey = () => {
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true});
-
-        setTimeout(() => {
-          navigate("/");
-        }, 3000);
+        navigate("/");
       
     },
     onError: (error) => {

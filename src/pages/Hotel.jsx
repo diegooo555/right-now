@@ -168,25 +168,6 @@ function Hotel() {
                   </div>
                 </div>
               </div>
-
-              {/* Contact Information */}
-              <div className="bg-amber-50 rounded-xl p-4">
-                <h3 className="font-semibold text-gray-800 mb-3">Información de Contacto</h3>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Phone className="w-4 h-4 text-amber-500" />
-                    <span>+57 (8) 785-1234</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Mail className="w-4 h-4 text-amber-500" />
-                    <span>info@{hotel.name.toLowerCase().replace(/\s+/g, '')}.com</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Clock className="w-4 h-4 text-amber-500" />
-                    <span>Check-in: 3:00 PM | Check-out: 12:00 PM</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
