@@ -47,7 +47,7 @@ function Reservations() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-serif font-bold text-gray-800 mb-4">Mis Reservaciones</h1>
-            <p className="text-amber-600 text-lg">Gestiona y revisa tus reservas de hotel</p>
+            <p className="text-amber-500 text-xl font-bold">Gestiona y revisa tus reservas</p>
           </div>
 
           {isLoading ? (
@@ -56,10 +56,6 @@ function Reservations() {
             <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
               <Building2 className="w-16 h-16 mx-auto text-gray-400 mb-4" />
               <h3 className="text-xl font-semibold text-gray-800 mb-2">No tienes reservaciones</h3>
-              <p className="text-gray-600 mb-6">Comienza a explorar nuestros hoteles y haz tu primera reserva</p>
-              <button className="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-500 hover:to-yellow-600 text-white py-3 px-8 rounded-lg transition-all duration-300 font-medium shadow-md hover:shadow-lg">
-                Explorar Hoteles
-              </button>
             </div>
           ) : (
             <div className="grid gap-8">

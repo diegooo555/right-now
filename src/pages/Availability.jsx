@@ -33,7 +33,7 @@ const Availability = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-amber-50 w-screen">
+    <div className="min-h-full bg-gradient-to-br from-white to-amber-50 w-full overflow-hidden">
       <div className="container min-w-full px-4 py-5">
         <HomeLink/>
 
