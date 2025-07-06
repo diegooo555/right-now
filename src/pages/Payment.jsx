@@ -3,6 +3,8 @@ import { useUserContext } from "../context/useUsercontext.js";
 import { Calendar, Users, CreditCard, Building2, Shield, CheckCircle } from 'lucide-react';
 import { Decimal } from 'decimal.js';
 import BuyButton from "../wompi/BuyButton";
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 
 const Payment = () => {
   const { user } = useUserContext();
@@ -56,17 +58,22 @@ const Payment = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-amber-50 py-12 px-4">
       <div className="max-w-4xl mx-auto">
+
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          {/* Gold Header */}
-          <div className="h-2 bg-gradient-to-r from-amber-400 to-yellow-500" />
           
-          <div className="p-8">
+          <div className="h-2 bg-gradient-to-r from-amber-400 to-yellow-500" />
+
+          <Link className="flex items-center gap-2 text-amber-500 hover:text-amber-700 m-3 font-bold text-xl" to={`/availability?checkin=${checkIn}&checkout=${checkOut}&capacity=${guests}`}>
+            <ArrowLeft className="w-5 h-5" />
+            Atrás
+          </Link>
+          
+          <div className="p-4">
             <div className="flex items-center gap-3 mb-6">
               <Shield className="w-8 h-8 text-amber-500" />
               <h2 className="text-3xl font-serif font-semibold text-amber-600">Confirma tu Reserva</h2>
             </div>
 
-            {/* Trust Message */}
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8">
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
@@ -77,7 +84,6 @@ const Payment = () => {
               </div>
             </div>
 
-            {/* Room Details */}
             <div className="mb-8 p-6 bg-amber-50 rounded-xl">
               <div className="flex items-center gap-3 mb-4">
                 <Building2 className="w-6 h-6 text-amber-600" />
@@ -91,7 +97,6 @@ const Payment = () => {
               />
             </div>
 
-            {/* Reservation Details */}
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3 text-gray-600">
                 <Calendar className="w-5 h-5 text-amber-500" />
@@ -111,7 +116,6 @@ const Payment = () => {
               </div>
             </div>
 
-            {/* Price Breakdown */}
             <div className="border-t border-gray-100 pt-6 mb-8">
               <h4 className="text-lg font-bold text-gray-800 mb-4">Desglose de Costos</h4>
               <div className="space-y-3 text-gray-600">
@@ -129,7 +133,6 @@ const Payment = () => {
                 </div>
               </div>
 
-              {/* Payment Plan Highlight */}
               <div className="mt-6 bg-gradient-to-r from-amber-50 to-yellow-50 border-2 border-amber-200 rounded-xl p-6">
                 <h5 className="text-lg font-semibold text-amber-800 mb-3">Plan de Pago Conveniente</h5>
                 <div className="space-y-3">
@@ -149,7 +152,6 @@ const Payment = () => {
                   </div>
                 </div>
                 
-                {/* Amount to Pay Now - Highlighted */}
                 <div className="mt-4 pt-4 border-t-2 border-amber-300">
                   <div className="flex justify-between items-center bg-amber-100 rounded-lg p-4">
                     <div className="flex items-center gap-3">
@@ -168,7 +170,6 @@ const Payment = () => {
               </div>
             </div>
 
-            {/* Payment Widget */}
             <div className="bg-gray-50 rounded-xl p-6">
               <div className="flex items-center gap-2 mb-4">
                 <Shield className="w-5 h-5 text-green-600" />
@@ -188,7 +189,6 @@ const Payment = () => {
               />
             </div>
 
-            {/* Additional Information */}
             <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <p className="text-sm text-blue-800">
                 <strong>Recordatorio:</strong> Una vez completado este pago, recibirás un email de confirmación con todos los detalles de tu reserva y las instrucciones para el check-in.

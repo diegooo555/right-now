@@ -1,9 +1,10 @@
 import React from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getRoomsAvailable } from '../api/hotel.js';
 import { Loader2, Calendar, Users, Loader } from 'lucide-react';
 import Room from '../components/hotel/Room';
+import HomeLink from '../components/ui/HomeLink.jsx';
 
 const Availability = () => {
   const [searchParams] = useSearchParams();
@@ -32,11 +33,13 @@ const Availability = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-amber-50">
-      <div className="container mx-auto px-4 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-white to-amber-50 w-screen">
+      <div className="container min-w-full px-4 py-5">
+        <HomeLink/>
+
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-serif font-bold text-gray-800 mb-4">
+        <div className="text-center mb-12 mt-4">
+          <h1 className="text-4xl font-serif font-bold text-amber-500 mb-4">
             Habitaciones Disponibles
           </h1>
           <div className="flex items-center justify-center gap-6 text-gray-600">
