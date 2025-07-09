@@ -14,12 +14,13 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
     <div className="mx-auto px-4 md:px-2 w-full">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
-          <img src="/villa.png" alt="" className='w-20 h-20 rounded-[100%]'/>
+          <img src="/villa.png" alt="" className='md:w-14 md:h-14 rounded-full w-20 h-20 lg:w-20 lg:h-20'/>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-7">
+        <div className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-sm font-medium hover:text-amber-400 transition-colors">Inicio</Link>
+          <Link to="/infohotel" className="text-sm font-medium hover:text-amber-400 transition-colors">Hotel</Link>
           <a href="#destinations" className="text-sm font-medium hover:text-amber-400 transition-colors">Destinos</a>
           <a href="#offers" className="text-sm font-medium hover:text-amber-400 transition-colors">Ofertas</a>
           <a href="#amenities" className="text-sm font-medium hover:text-amber-400 transition-colors">Amenidades</a>
@@ -28,7 +29,7 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
           <Link to="/reservations" className="text-sm font-medium hover:text-amber-400 transition-colors">Mis Reservas</Link>
         </div>
 
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-2">
           <LinkGoogle user={user}/>
         </div>
 
@@ -52,6 +53,7 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
       <div className="px-4 pt-2 pb-4 bg-white shadow-lg">
         <div className="flex flex-col space-y-3">
           <Link to="/" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Inicio</Link>
+          <Link to="/infohotel" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Hotel</Link>
           <a href="#destinations" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Destinos</a>
           <a href="#offers" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Ofertas</a>
           <a href="#amenities" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Amenidades</a>

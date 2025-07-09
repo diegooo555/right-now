@@ -15,6 +15,7 @@ import BookingSuccess from "./pages/BookingSuccess"
 import ServiceSurvey from "./pages/ServiceSurvey"
 import ProtectedAdmin from "./auth/ProtectedAdmin"
 import Hotel from "./pages/Hotel"
+import HotelInfo from "./pages/HotelInfo"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/infohotel" element={<HotelInfo/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/oauth2-redirect" element={<OAuth2RedirectHandler/>}/>
           <Route path="/survey" element={<ServiceSurvey/>}></Route>
