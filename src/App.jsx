@@ -16,6 +16,7 @@ import ServiceSurvey from "./pages/ServiceSurvey"
 import ProtectedAdmin from "./auth/ProtectedAdmin"
 import Hotel from "./pages/Hotel"
 import HotelInfo from "./pages/HotelInfo"
+import AdminDashboard from "./pages/AdminDashboard"
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
             <Route path="/booking" element={<BookingSuccess/>}/>
           </Route>
           <Route element={<ProtectedAdmin/>}>
+            <Route path="/admin" element={<AdminDashboard/>}/>
             <Route path="/hotel" element={<Hotels/>}/>
             <Route path="/hotel/rooms/:id" element={<Hotel/>}/>
           </Route>

@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { jwtDecode } from 'jwt-decode';
 import { refreshAccesToken } from "../api/user.js"; 
 import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router";
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const setupUserAndRefresh = async () => {
@@ -33,6 +35,11 @@ export const UserProvider = ({ children }) => {
         } else {
           setUser(decoded);
           scheduleTokenRefresh(decoded.exp);
+        }
+
+        console.log(decoded)
+        if(decoded?.roles?.some(role => role === "ROLE_ADMIN")){
+          navigate("/admin");
         }
       } catch (error) {
         console.error("Error al manejar el token:", error);

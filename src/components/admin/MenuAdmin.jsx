@@ -18,7 +18,7 @@ const MenuAdmin = ({isScrolled, user, isOpen, setIsOpen}) => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-7">
-          <Link to="/" className="text-sm font-medium hover:text-amber-400 transition-colors">Inicio</Link>
+          <Link to="/admin" className="text-sm font-medium hover:text-amber-400 transition-colors">Inicio</Link>
           <a href="#destinations" className="text-sm font-medium hover:text-amber-400 transition-colors">Encuestas</a>
           <a href="#offers" className="text-sm font-medium hover:text-amber-400 transition-colors">Reservas</a>
           <a href="#amenities" className="text-sm font-medium hover:text-amber-400 transition-colors">Pagos</a>
@@ -50,7 +50,7 @@ const MenuAdmin = ({isScrolled, user, isOpen, setIsOpen}) => {
     <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
       <div className="px-4 pt-2 pb-4 bg-white shadow-lg">
         <div className="flex flex-col space-y-3">
-          <Link to="/" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Inicio</Link>
+          <Link to="/admin" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Inicio</Link>
           <a href="#destinations" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Destinos</a>
           <a href="#offers" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Ofertas</a>
           <a href="#amenities" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Amenidades</a>
