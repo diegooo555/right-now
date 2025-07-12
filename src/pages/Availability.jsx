@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getRoomsAvailable } from '../api/hotel.js';

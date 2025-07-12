@@ -16,7 +16,6 @@ function Home() {
       <Navbar />
       <Hero />
       <PopularDestinations />
-      <SpecialOffers />
       <Amenities />
       <Testimonials />
       <Footer />

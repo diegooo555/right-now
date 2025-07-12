@@ -1,7 +1,7 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 
-const DestinationCard = ({ image, name, location, rating, price }) => {
+const DestinationCard = ({ image, name, location, rating }) => {
   return (
     <div className="card group">
       <div className="relative overflow-hidden">
@@ -18,17 +18,8 @@ const DestinationCard = ({ image, name, location, rating, price }) => {
       <div className="p-4">
         <h3 className="text-lg font-playfair font-bold">{name}</h3>
         <div className="flex items-center mt-2">
-          <Star className="w-4 h-4 text-gold-500 fill-gold-500" />
-          <span className="ml-1 text-sm">{rating} (120+ reviews)</span>
-        </div>
-        <div className="mt-3 flex items-center justify-between">
-          <p className="text-amber-600 font-medium">
-            <span className="text-lg">${price}</span>
-            <span className="text-sm text-gray-600"> / night</span>
-          </p>
-          <a href="/reserve" className="text-sm text-amber-600 hover:text-amber-700 font-medium">
-            Reservar
-          </a>
+          <Star className="w-4 h-4 text-amber-500" />
+          <span className="ml-1 text-sm text-amber-500">{rating} (120+ reviews)</span>
         </div>
       </div>
     </div>
@@ -39,44 +30,39 @@ const PopularDestinations = () => {
   const destinations = [
     {
       id: 1,
-      image: "https://i.imgur.com/9iBl5AV.jpeg",
-      name: "Luxury Ocean Suite",
-      location: "Maldives",
-      rating: 4.8,
-      price: 249
+      image: "/monumento.webp",
+      name: "Monumento a los 14 Lanceros",
+      location: "Paipa",
+      rating: 4.9
     },
     {
       id: 2,
-      image: "https://i.imgur.com/0JHzfkg.jpeg",
-      name: "Grand City View",
-      location: "New York",
-      rating: 4.7,
-      price: 199
+      image: "/museo.webp",
+      name: "Museo",
+      location: "Paipa",
+      rating: 4.8
     },
     {
       id: 3,
-      image: "https://i.imgur.com/hWZItGA.jpeg",
+      image: "/stone.webp",
       name: "Mountain Escape Resort",
-      location: "Switzerland",
-      rating: 4.9,
-      price: 329
+      location: "Paipa",
+      rating: 4.9
     },
     {
       id: 4,
-      image: "https://i.imgur.com/9ax5uSZ.jpeg",
-      name: "Historic Palace Hotel",
-      location: "Rome",
-      rating: 4.6,
-      price: 185
+      image: "/cerro.webp",
+      name: "Cerro de la Guerra",
+      location: "Paipa",
+      rating: 4.6
     }
   ];
 
   return (
-    <section id="destinations" className="py-20 bg-cream-50">
+    <section id="destinations" className="py-10 bg-cream-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-amber-500 mb-4 leading-tight">Explore Our Popular Destinations</h2>
-          <p className="text-2xl text-amber-400">Discover handpicked properties in breathtaking locations</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-amber-500 mb-4 leading-tight">Explora y Descubre Pantano de Vargas</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -87,15 +73,8 @@ const PopularDestinations = () => {
               name={destination.name}
               location={destination.location}
               rating={destination.rating}
-              price={destination.price}
             />
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <a href="#" className="btn-outline">
-            View All Destinations
-          </a>
         </div>
       </div>
     </section>

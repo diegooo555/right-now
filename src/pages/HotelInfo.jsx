@@ -14,6 +14,7 @@ import {
   Tv,
   Phone,
   Clock,
+  ShowerHead,
 } from "lucide-react";
 import Navbar from "../components/home/Navbar";
 
@@ -21,7 +22,7 @@ const HotelInfo = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-amber-50 ">
       <Navbar/>
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
+      <section className="pt-24 pb-5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image Gallery */}
@@ -79,7 +80,7 @@ const HotelInfo = () => {
             {/* Hotel Information */}
             <div className="space-y-6">
               <div>
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold block text-amber-600 leading-tight">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold block text-amber-400 leading-tight">
                   Hotel Villa Libertad -
                   Pantano de Vargas - Paipa
                 </h1>
@@ -126,13 +127,13 @@ const HotelInfo = () => {
       </section>
 
       {/* Hotel Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-5 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-gray-800 mb-4">
-              Servicios y Amenidades
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-amber-400 mb-4">
+              Servicios Incluidos
             </h2>
-            <p className="text-amber-600 text-lg max-w-2xl mx-auto">
+            <p className="text-amber-500 text-lg max-w-2xl mx-auto">
               Descubre todo lo que Villa Libertad tiene para ofrecerte
             </p>
           </div>
@@ -140,16 +141,16 @@ const HotelInfo = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: Waves,
-                title: "Piscina y Spa",
-                desc: "Disfruta de nuestra piscina con aguas cristalinas y relájate en nuestro wellness spa.",
+                icon: Wifi,
+                title: "Wifi",
+                desc: "Internet 4G de alta velocidad.",
                 bg: "bg-blue-50",
                 iconColor: "text-blue-600",
               },
               {
                 icon: MapPin,
                 title: "Ubicación Privilegiada",
-                desc: "En el corazón de la ciudad, cerca de museos y el casco histórico.",
+                desc: "A 300 metros del monumento, cerca de museos y el casco histórico.",
                 bg: "bg-green-50",
                 iconColor: "text-green-600",
               },
@@ -163,14 +164,14 @@ const HotelInfo = () => {
               {
                 icon: Building2,
                 title: "Espacios",
-                desc: "Espacios modernos y equipados para eventos corporativos y sociales.",
+                desc: "Espacios para eventos corporativos y sociales.",
                 bg: "bg-purple-50",
                 iconColor: "text-purple-600",
               },
               {
-                icon: ChefHat,
-                title: "Gastronomía",
-                desc: "Sabores auténticos y cocina internacional en nuestros restaurantes.",
+                icon: Tv,
+                title: "TV Gratis",
+                desc: "Mira tus canales nacionales favoritos totalmente gratis.",
                 bg: "bg-red-50",
                 iconColor: "text-red-600",
               },

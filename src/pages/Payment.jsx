@@ -1,22 +1,20 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useUserContext } from "../context/useUsercontext.js";
-import { Calendar, Users, CreditCard, Building2, Shield, CheckCircle } from 'lucide-react';
+import { Calendar, Users, CreditCard, Building2, Shield, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Decimal } from 'decimal.js';
 import BuyButton from "../wompi/BuyButton";
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import CarouselRoom from '../components/hotel/CarouselRoom.jsx';
 
 const Payment = () => {
   const { user } = useUserContext();
-  const location = useLocation();
+  const location = useLocation();  
   if (!location.state) {
     return <Navigate to="/"/>;
   }
 
   const { checkIn, checkOut, guests, room } = location.state || {};
-
-  console.log(user);
-  console.log(location.state);
 
   const checkInDate = new Date(checkIn);
   const checkOutDate = new Date(checkOut);
@@ -89,12 +87,8 @@ const Payment = () => {
                 <Building2 className="w-6 h-6 text-amber-600" />
                 <h3 className="text-xl font-semibold text-gray-800">{room?.name}</h3>
               </div>
-              <p className="text-amber-700 font-medium mb-2">{room?.roomType}</p>
-              <img 
-                src={room?.urlImg} 
-                alt={room?.name} 
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
+              <p className="text-amber-700 font-medium mb-4">{room?.roomType}</p>
+              <CarouselRoom room={room} />
             </div>
 
             <div className="space-y-4 mb-8">
