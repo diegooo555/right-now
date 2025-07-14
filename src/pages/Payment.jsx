@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useUserContext } from "../context/useUsercontext.js";
-import { Calendar, Users, Building2, Shield, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, Users, Building2, Shield, CheckCircle } from 'lucide-react';
 import { Decimal } from 'decimal.js';
 import BuyButton from "../wompi/BuyButton";
 import { Link } from 'react-router-dom';

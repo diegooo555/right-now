@@ -1,4 +1,5 @@
 import { CreditCard } from "lucide-react"
+
 function PaymentSummary({half}) {
   return(
               <div className="mt-6 bg-gradient-to-r from-amber-50 to-yellow-50 border-2 border-amber-200 rounded-xl p-6">

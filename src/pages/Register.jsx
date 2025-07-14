@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Logo from '../components/ui/Logo';
 import { registerUser, refreshAccesToken } from '../api/user.js';
 import { useUserContext } from '../context/useUsercontext.js';
@@ -14,6 +14,7 @@ import {
   Sparkles,
   ArrowRight
 } from 'lucide-react';
+import RegisterFiels from '../components/forms/RegisterFiels.jsx';
 
 const Register = () => {
   const {user, setUser} = useUserContext();
@@ -129,27 +130,7 @@ const Register = () => {
             
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Email Field (Read-only) */}
-              <div className="space-y-2">
-                <label className="block text-sm font-semibold text-gray-700">
-                  Correo Electrónico
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <Mail className="h-5 w-5 text-amber-400" />
-                  </div>
-                  <input
-                    type='email'
-                    name='email'
-                    value={user?.sub}
-                    readOnly
-                    className="w-full pl-12 pr-4 py-3 bg-amber-50 border-2 border-amber-200 rounded-xl text-gray-700 font-medium focus:outline-none cursor-not-allowed"
-                  />
-                  <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                  </div>
-                </div>
-                <p className="text-xs text-amber-600 font-medium">✓ Verificado automáticamente</p>
-              </div>
+              <RegisterFiels label="Correo Electrónico" type="email" name="email" value={user?.sub} handleChange={handleChange} icon={<Mail className="h-5 w-5 text-amber-400"/>} readOnly={true}/>
 
               {/* Name Field */}
               <div className="space-y-2">
@@ -172,26 +153,9 @@ const Register = () => {
                 </div>
               </div>
 
-              {/* Phone Field */}
-              <div className="space-y-2">
-                <label className="block text-sm font-semibold text-gray-700">
-                  Número de Teléfono
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <Phone className="h-5 w-5 text-amber-400" />
-                  </div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    placeholder="+57 300 123 4567"
-                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-amber-400 focus:ring-4 focus:ring-amber-100 transition-all duration-200 hover:border-amber-300"
-                  />
-                </div>
-              </div>
+              <RegisterFiels label="Nombre Completo" type="text" name="name" value={formData?.name} handleChange={handleChange} icon={<User className="h-5 w-5 text-amber-400" />}/>
+
+              <RegisterFiels label="Número de Teléfono" type="tel" name="phone" value={formData?.phone} handleChange={handleChange} icon={<Phone className="h-5 w-5 text-amber-400" />} required={true}/>
 
               {/* City Field */}
               <div className="space-y-2">
