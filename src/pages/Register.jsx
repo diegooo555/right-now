@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import Logo from '../components/ui/Logo';
+import { useState } from 'react';
+import RegisterFields from '../components/forms/RegisterFields';
 import { registerUser, refreshAccesToken } from '../api/user.js';
 import { useUserContext } from '../context/useUsercontext.js';
 import { jwtDecode } from 'jwt-decode';
@@ -14,7 +15,7 @@ import {
   Sparkles,
   ArrowRight
 } from 'lucide-react';
-import RegisterFiels from '../components/forms/RegisterFiels.jsx';
+
 
 const Register = () => {
   const {user, setUser} = useUserContext();
@@ -129,13 +130,13 @@ const Register = () => {
             )}
             
             <form onSubmit={handleSubmit} className="space-y-6">
-              <RegisterFiels label="Correo Electrónico" type="email" name="email" value={user?.sub} handleChange={handleChange} icon={<Mail className="h-5 w-5 text-amber-400"/>} readOnly={true}/>
+              <RegisterFields label="Correo Electrónico" type="email" name="email" value={user?.sub} handleChange={handleChange} icon={<Mail className="h-5 w-5 text-amber-400"/>} readOnly={true}/>
 
-              <RegisterFiels label="Nombre Completo" type="text" name="name" value={formData?.name} handleChange={handleChange} icon={<User className="h-5 w-5 text-amber-400"/>} required={true}/>
+              <RegisterFields label="Nombre Completo" type="text" name="name" value={formData?.name} handleChange={handleChange} icon={<User className="h-5 w-5 text-amber-400"/>} required={true}/>
 
-              <RegisterFiels label="Número de Teléfono" type="tel" name="phone" value={formData?.phone} handleChange={handleChange} icon={<Phone className="h-5 w-5 text-amber-400" />} required={true}/>
+              <RegisterFields label="Número de Teléfono" type="tel" name="phone" value={formData?.phone} handleChange={handleChange} icon={<Phone className="h-5 w-5 text-amber-400" />} required={true}/>
 
-              <RegisterFiels label="Ciudad de Residencia" type="tex" name="city" value={formData?.city} handleChange={handleChange} icon={<MapPin className="h-5 w-5 text-amber-400" />} required={true}/>
+              <RegisterFields label="Ciudad de Residencia" type="tex" name="city" value={formData?.city} handleChange={handleChange} icon={<MapPin className="h-5 w-5 text-amber-400" />} required={true}/>
 
               <button
                 type="submit"
