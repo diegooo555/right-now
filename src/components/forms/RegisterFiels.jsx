@@ -1,4 +1,4 @@
-const RegisterFiels = ({label, type, name, value, handleChange, icon, required, readOnly = false}) => {
+const RegisterFiels = ({label, type, name, value, handleChange, icon, required = true, readOnly = false}) => {
   return (
     <div className="space-y-2">
       <label className="block text-sm font-semibold text-gray-700">

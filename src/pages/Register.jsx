@@ -129,56 +129,14 @@ const Register = () => {
             )}
             
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Email Field (Read-only) */}
               <RegisterFiels label="Correo Electrónico" type="email" name="email" value={user?.sub} handleChange={handleChange} icon={<Mail className="h-5 w-5 text-amber-400"/>} readOnly={true}/>
 
-              {/* Name Field */}
-              <div className="space-y-2">
-                <label className="block text-sm font-semibold text-gray-700">
-                  Nombre Completo
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <User className="h-5 w-5 text-amber-400" />
-                  </div>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Ingresa tu nombre completo"
-                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-amber-400 focus:ring-4 focus:ring-amber-100 transition-all duration-200 hover:border-amber-300"
-                  />
-                </div>
-              </div>
-
-              <RegisterFiels label="Nombre Completo" type="text" name="name" value={formData?.name} handleChange={handleChange} icon={<User className="h-5 w-5 text-amber-400" />}/>
+              <RegisterFiels label="Nombre Completo" type="text" name="name" value={formData?.name} handleChange={handleChange} icon={<User className="h-5 w-5 text-amber-400"/>} required={true}/>
 
               <RegisterFiels label="Número de Teléfono" type="tel" name="phone" value={formData?.phone} handleChange={handleChange} icon={<Phone className="h-5 w-5 text-amber-400" />} required={true}/>
 
-              {/* City Field */}
-              <div className="space-y-2">
-                <label className="block text-sm font-semibold text-gray-700">
-                  Ciudad de Residencia
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <MapPin className="h-5 w-5 text-amber-400" />
-                  </div>
-                  <input
-                    type="text"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleChange}
-                    required
-                    placeholder="Ej: Bogotá, Medellín, Cali..."
-                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-amber-400 focus:ring-4 focus:ring-amber-100 transition-all duration-200 hover:border-amber-300"
-                  />
-                </div>
-              </div>
+              <RegisterFiels label="Ciudad de Residencia" type="tex" name="city" value={formData?.city} handleChange={handleChange} icon={<MapPin className="h-5 w-5 text-amber-400" />} required={true}/>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isLoading}
