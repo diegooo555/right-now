@@ -1,4 +1,3 @@
-import React from 'react';
 import { Wifi, Utensils, Car, Bath, Dumbbell, Coffee } from 'lucide-react';
 
 const Amenity = ({ icon, title, description }) => {
