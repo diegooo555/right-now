@@ -21,7 +21,7 @@ const HotelInfo = () => {
                 <div className="col-span-2">
                   <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
                     <img
-                      src="/exterior.webp"
+                      src="https://res.cloudinary.com/dv465a7h0/image/upload/exterior_uotkrn"
                       alt="Villa Libertad - Vista principal"
                       className="object-cover w-full h-full rounded-2xl hover:scale-105 transition-transform duration-300"
                     />
@@ -40,7 +40,7 @@ const HotelInfo = () => {
                 {/* Secondary images */}
                 <div className="relative h-32 sm:h-40 rounded-2xl overflow-hidden shadow-md">
                   <img
-                    src="/pantano.webp"
+                    src="https://res.cloudinary.com/dv465a7h0/image/upload/pantano_vpit6t"
                     alt="Villa Libertad - Spa y Wellness"
                     className="object-cover w-full h-full rounded-2xl hover:scale-105 transition-transform duration-300"
                   />
@@ -48,7 +48,7 @@ const HotelInfo = () => {
 
                 <div className="relative h-32 sm:h-40 rounded-2xl overflow-hidden shadow-md">
                   <img
-                    src="/sala_2.webp"
+                    src="https://res.cloudinary.com/dv465a7h0/image/upload/sala_2_x110gh"
                     alt="Villa Libertad - Piscina"
                     className="object-cover w-full h-full rounded-2xl hover:scale-105 transition-transform duration-300"
                   />

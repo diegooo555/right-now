@@ -48,7 +48,7 @@ const Hero = () => {
     <section 
       id="home" 
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: "url('/exterior.webp')" }}
+      style={{ backgroundImage: "url('https://res.cloudinary.com/dv465a7h0/image/upload/exterior_uotkrn')" }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg- bg-opacity-40"></div>

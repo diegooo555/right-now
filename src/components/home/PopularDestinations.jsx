@@ -30,28 +30,28 @@ const PopularDestinations = () => {
   const destinations = [
     {
       id: 1,
-      image: "/monumento.webp",
+      image: "https://res.cloudinary.com/dv465a7h0/image/upload/monumento_nlpm6x",
       name: "Monumento a los 14 Lanceros",
       location: "Paipa",
       rating: 4.9
     },
     {
       id: 2,
-      image: "/museo.webp",
+      image: "https://res.cloudinary.com/dv465a7h0/image/upload/museo_yepw1k",
       name: "Museo",
       location: "Paipa",
       rating: 4.8
     },
     {
       id: 3,
-      image: "/stone.webp",
+      image: "https://res.cloudinary.com/dv465a7h0/image/upload/stone_w3itza",
       name: "Mountain Escape Resort",
       location: "Paipa",
       rating: 4.9
     },
     {
       id: 4,
-      image: "/cerro.webp",
+      image: "https://res.cloudinary.com/dv465a7h0/image/upload/cerro_xoizuw",
       name: "Cerro de la Guerra",
       location: "Paipa",
       rating: 4.6
