@@ -1,11 +1,15 @@
+import Services from '../../components/hotel/Services';
+import Navbar from '../../components/home/Navbar';
+
 import {
   Heart,
   Star,
   Phone,
-  Clock
+  Clock,
+  Mail,
+  Dog,
+  DollarSign,
 } from "lucide-react";
-import Navbar from "../../components/home/Navbar";
-import Services from "../../components/hotel/Services";
 
 const HotelInfo = () => {
   return (
@@ -14,43 +18,94 @@ const HotelInfo = () => {
       <section className="pt-24 pb-5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image Gallery */}
+            {/* Expanded Image Gallery */}
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                {/* Main large image */}
-                <div className="col-span-2">
-                  <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
-                    <img
-                      src="https://res.cloudinary.com/dv465a7h0/image/upload/exterior_uotkrn"
-                      alt="Villa Libertad - Vista principal"
-                      className="object-cover w-full h-full rounded-2xl hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full">
-                      <div className="flex items-center gap-1">
-                        <Star className="w-5 h-5 text-amber-400 fill-current" />
-                        <span className="font-semibold">4.8</span>
-                        <span className="text-gray-500 text-sm">
-                          (124 reseñas)
-                        </span>
-                      </div>
-                    </div>
+              {/* Main large image */}
+              <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://res.cloudinary.com/dv465a7h0/image/upload/exterior_uotkrn"
+                  alt="Villa Libertad - Vista principal"
+                  className="object-cover w-full h-full rounded-2xl hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full">
+                  <div className="flex items-center gap-1">
+                    <Star className="w-5 h-5 text-amber-400 fill-current" />
+                    <span className="font-semibold">4.8</span>
+                    <span className="text-gray-500 text-sm">
+                      (124 reseñas)
+                    </span>
                   </div>
                 </div>
+              </div>
 
-                {/* Secondary images */}
-                <div className="relative h-32 sm:h-40 rounded-2xl overflow-hidden shadow-md">
+              {/* Grid of secondary images */}
+              <div className="grid grid-cols-3 gap-3">
+                <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden shadow-md">
                   <img
                     src="https://res.cloudinary.com/dv465a7h0/image/upload/pantano_vpit6t"
-                    alt="Villa Libertad - Spa y Wellness"
-                    className="object-cover w-full h-full rounded-2xl hover:scale-105 transition-transform duration-300"
+                    alt="Villa Libertad - Habitación"
+                    className="object-cover w-full h-full rounded-xl hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-
-                <div className="relative h-32 sm:h-40 rounded-2xl overflow-hidden shadow-md">
+                
+                <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden shadow-md">
                   <img
                     src="https://res.cloudinary.com/dv465a7h0/image/upload/sala_2_x110gh"
                     alt="Villa Libertad - Piscina"
-                    className="object-cover w-full h-full rounded-2xl hover:scale-105 transition-transform duration-300"
+                    className="object-cover w-full h-full rounded-xl hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src="https://res.cloudinary.com/dv465a7h0/image/upload/v1752890760/DSC01745_lgitgp.jpg"
+                    alt="Villa Libertad - Spa"
+                    className="object-cover w-full h-full rounded-xl hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-3">
+                <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src="https://res.cloudinary.com/dv465a7h0/image/upload/v1752890993/DSC01748_pajnf4.jpg"
+                    alt="Villa Libertad - Habitación"
+                    className="object-cover w-full h-full rounded-xl hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                
+                <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src="https://res.cloudinary.com/dv465a7h0/image/upload/v1752890935/DSC01780_o45juh.jpg"
+                    alt="Villa Libertad - Piscina"
+                    className="object-cover w-full h-full rounded-xl hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src="https://res.cloudinary.com/dv465a7h0/image/upload/v1752806054/DSC01700_etevxs.jpg"
+                    alt="Villa Libertad - Spa"
+                    className="object-cover w-full h-full rounded-xl hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </div>              
+
+              {/* Additional larger images */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="relative h-28 sm:h-36 rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src="https://res.cloudinary.com/dv465a7h0/image/upload/apartment_2_1_d1ajyr"
+                    alt="Villa Libertad - Vista panorámica"
+                    className="object-cover w-full h-full rounded-xl hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                <div className="relative h-28 sm:h-36 rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src="https://res.cloudinary.com/dv465a7h0/image/upload/DSC01716_t1rog2"
+                    alt="Villa Libertad - Área común"
+                    className="object-cover w-full h-full rounded-xl hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               </div>
@@ -67,7 +122,7 @@ const HotelInfo = () => {
             </div>
 
             {/* Hotel Information */}
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div>
                 <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold block text-amber-400 leading-tight">
                   Hotel Villa Libertad -
@@ -102,6 +157,15 @@ const HotelInfo = () => {
                 </div>
                 <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-100">
                   <div className="flex items-center gap-2 mb-2">
+                    <Mail className="w-4 h-4 text-amber-500" />
+                    <span className="text-sm font-medium text-gray-800">
+                      Gmail
+                    </span>
+                  </div>
+                  <p className="text-gray-600 text-sm">villalibertad76@gmail.com</p>
+                </div>                
+                <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-100">
+                  <div className="flex items-center gap-2 mb-2">
                     <Clock className="w-4 h-4 text-amber-500" />
                     <span className="text-sm font-medium text-gray-800">
                       Check-in
@@ -109,6 +173,37 @@ const HotelInfo = () => {
                   </div>
                   <p className="text-gray-600 text-sm">4:00 PM - 8:00 PM</p>
                 </div>
+                
+
+                <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-100">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Clock className="w-4 h-4 text-amber-500" />
+                    <span className="text-sm font-medium text-gray-800">
+                      Check-out
+                    </span>
+                  </div>
+                  <p className="text-gray-600 text-sm">8:00 AM - 11:00 AM</p>
+                </div> 
+
+                <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-100">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Dog className="w-4 h-4 text-amber-500" />
+                    <span className="text-sm font-medium text-gray-800">
+                      Pet Friendly
+                    </span>
+                  </div>
+                  <p className="text-gray-600 text-sm">Trae a  tu mejor amigo</p>
+                </div>     
+                
+                <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-100">
+                  <div className="flex items-center gap-2 mb-2">
+                    <DollarSign className="w-4 h-4 text-amber-500" />
+                    <span className="text-sm font-medium text-gray-800">
+                      Medios de Pago
+                    </span>
+                  </div>
+                  <p className="text-gray-600 text-sm">Pagos Online</p>
+                </div>                                                    
               </div>
             </div>
           </div>
