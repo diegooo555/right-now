@@ -1,12 +1,12 @@
 import { Navigate, useLocation } from 'react-router-dom';
-import { useUserContext } from "../context/useUsercontext.js";
+import { useUserContext } from "../../context/useUsercontext.js";
 import { Calendar, Users, Building2, Shield, CheckCircle } from 'lucide-react';
 import { Decimal } from 'decimal.js';
-import BuyButton from "../wompi/BuyButton";
+import BuyButton from "../../wompi/BuyButton.jsx";
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import CarouselRoom from '../components/hotel/CarouselRoom.jsx';
-import PaymentSummary from '../components/ui/PaymentSummary.jsx';
+import CarouselRoom from '../../components/hotel/CarouselRoom.jsx';
+import PaymentSummary from '../../components/ui/PaymentSummary.jsx';
 
 const Payment = () => {
   const { user } = useUserContext();

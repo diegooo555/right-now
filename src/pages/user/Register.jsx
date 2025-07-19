@@ -1,9 +1,9 @@
-import Logo from '../components/ui/Logo';
-import Footer from '../components/forms/Footer';
+import Logo from '../../components/ui/Logo.jsx';
+import Footer from '../../components/forms/Footer.jsx';
 import { useState } from 'react';
-import RegisterFields from '../components/forms/RegisterFields';
-import { registerUser, refreshAccesToken } from '../api/user.js';
-import { useUserContext } from '../context/useUsercontext.js';
+import RegisterFields from '../../components/forms/RegisterFields.jsx';
+import { registerUser, refreshAccesToken } from '../../api/user.js';
+import { useUserContext } from '../../context/useUsercontext.js';
 import { jwtDecode } from 'jwt-decode';
 import { 
   User, 

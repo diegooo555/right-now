@@ -1,9 +1,9 @@
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { getRoomsAvailable } from '../api/hotel.js';
+import { getRoomsAvailable } from '../../api/hotel.js';
 import { Loader2, Calendar, Users, Loader } from 'lucide-react';
-import Room from '../components/hotel/Room';
-import HomeLink from '../components/ui/HomeLink.jsx';
+import Room from '../../components/hotel/Room.jsx';
+import HomeLink from '../../components/ui/HomeLink.jsx';
 
 const Availability = () => {
   const [searchParams] = useSearchParams();

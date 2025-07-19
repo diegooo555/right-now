@@ -4,8 +4,8 @@ import {
   Phone,
   Clock
 } from "lucide-react";
-import Navbar from "../components/home/Navbar";
-import Services from "../components/hotel/Services";
+import Navbar from "../../components/home/Navbar";
+import Services from "../../components/hotel/Services";
 
 const HotelInfo = () => {
   return (

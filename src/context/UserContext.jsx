@@ -37,7 +37,6 @@ export const UserProvider = ({ children }) => {
           scheduleTokenRefresh(decoded.exp);
         }
 
-        console.log(decoded)
         if(decoded?.roles?.some(role => role === "ROLE_ADMIN")){
           navigate("/admin");
         }

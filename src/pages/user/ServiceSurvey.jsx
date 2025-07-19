@@ -1,4 +1,4 @@
-import StarRating from "../components/forms/StarRating";
+import StarRating from "../../components/forms/StarRating.jsx";
 import { useState } from "react";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
@@ -11,7 +11,7 @@ import {
   Award,
   Send,
 } from "lucide-react";
-import { createReview } from "../api/review.js";
+import { createReview } from "../../api/review.js";
 import { toast } from "react-toastify";
 
 const ServiceSurvey = () => {

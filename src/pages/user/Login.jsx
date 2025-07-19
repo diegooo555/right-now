@@ -1,5 +1,5 @@
-import Logo from "../components/ui/Logo"
-import ButtonLoginGoogle from "../components/ui/ButtonLoginGoogle"
+import Logo from "../../components/ui/Logo"
+import ButtonLoginGoogle from "../../components/ui/ButtonLoginGoogle"
 
 const Login = () => {
 

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { getReservations } from '../api/reservation.js';
-import { calculateDuration, getStatusInfo } from '../utils/reservationUtil.js';
-import { useUserContext } from '../context/useUsercontext.js';
+import { getReservations } from '../../api/reservation.js';
+import { calculateDuration, getStatusInfo } from '../../utils/reservationUtil.js';
+import { useUserContext } from '../../context/useUsercontext.js';
 import {
   Calendar, Users, MapPin, Building2, Clock, Eye,
 } from 'lucide-react';
 import { toast } from 'react-toastify';
-import ReservationDetailsModal from '../components/hotel/ReservationDetailsModal';
-import Navbar from '../components/home/Navbar';
+import ReservationDetailsModal from '../../components/hotel/ReservationDetailsModal.jsx';
+import Navbar from '../../components/home/Navbar.jsx';
 
 function Reservations() {
   const [selectedReservation, setSelectedReservation] = useState(null);

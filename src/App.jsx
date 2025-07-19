@@ -1,22 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router"
 import { UserProvider } from "./context/UserContext"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import Home from "./pages/Home"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
-import Reservations from "./pages/Reservations";
+import Home from "./pages/user/Home"
+import Login from "./pages/user/Login"
+import Register from "./pages/user/Register"
+import Reservations from "./pages/user/Reservations";
 import ProtectedRouteUser from "./auth/ProtectedRouteUser"
-import Payment from "./pages/Payment"
-import Availability from "./pages/Availability"
+import Payment from "./pages/user/Payment"
+import Availability from "./pages/user/Availability"
 import OAuth2RedirectHandler from "./auth/Oauth"
 import ProtectedRouteVisitor from "./auth/ProtectedRouteVisitor"
-import Hotels from "./pages/Hotels"
-import BookingSuccess from "./pages/BookingSuccess"
-import ServiceSurvey from "./pages/ServiceSurvey"
+import Hotels from "./pages/admin/Hotels"
+import BookingSuccess from "./pages/user/BookingSuccess"
+import ServiceSurvey from "./pages/user/ServiceSurvey"
 import ProtectedAdmin from "./auth/ProtectedAdmin"
-import Hotel from "./pages/Hotel"
-import HotelInfo from "./pages/HotelInfo"
-import AdminDashboard from "./pages/AdminDashboard"
+import Hotel from "./pages/admin/Hotel"
+import HotelInfo from "./pages/user/HotelInfo"
+import AdminDashboard from "./pages/admin/AdminDashboard"
+import CreateRoom from "./pages/admin/CreateRoom"
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
             <Route path="/admin" element={<AdminDashboard/>}/>
             <Route path="/hotel" element={<Hotels/>}/>
             <Route path="/hotel/rooms/:id" element={<Hotel/>}/>
+            <Route path="/hotel/room/create" element={<CreateRoom/>}/>
           </Route>
         </Routes>
       </QueryClientProvider>

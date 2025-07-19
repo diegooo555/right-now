@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { getHotels } from '../api/hotel.js';
+import { useState, useMemo } from 'react';
+import { getHotels } from '../../api/hotel.js';
 import { Building2, MapPin, Calendar, Star, ArrowRight, Search, Filter } from 'lucide-react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

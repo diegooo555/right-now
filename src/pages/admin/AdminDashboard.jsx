@@ -1,8 +1,8 @@
 import React from 'react';
-import AdminLayout from '../components/admin/AdminLayout';
-import DashboardStats from '../components/admin/DashboardStats';
-import RecentReservations from '../components/admin/RecentReservations';
-import QuickActions from '../components/admin/QuickActions';
+import AdminLayout from '../../components/admin/AdminLayout';
+import DashboardStats from '../../components/admin/DashboardStats';
+import RecentReservations from '../../components/admin/RecentReservations';
+import QuickActions from '../../components/admin/QuickActions';
 import { 
   Calendar, 
   TrendingUp, 
