@@ -24,7 +24,7 @@ const Testimonial = ({
               <Star 
                 key={i} 
                 size={16} 
-                className={`${i < rating ? 'text-gold-500 fill-gold-500' : 'text-gray-300'} mr-1`} 
+                className={`${i < rating ? 'text-amber-400 fill-gold-500' : 'text-gray-300'} mr-1`} 
               />
             ))}
           </div>
@@ -39,25 +39,25 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      quote: "Our stay was absolutely perfect from start to finish. The staff went above and beyond to make our anniversary special. The ocean view suite was breathtaking!",
-      author: "Emma Johnson",
-      location: "New York, USA",
+      quote: "El lugar muy aseado, tranquilo y bien ubicado. El personal nos atendio muy bien con muy buena disposición, con Edelmira y sus trabajadores. El desayuno estuvo riquísimo.",
+      author: "Camila Sierra",
+      location: "Bogota D.C",
       image: "/emma.jpeg",
       rating: 5
     },
     {
       id: 2,
-      quote: "The attention to detail was impressive. From the personalized welcome note to the turn-down service, everything was perfect. Will definitely return!",
+      quote: "Excelente atención, muy limpio, ubicación genial, tranquilidad y sonidos campestres. Desayuno increíble y gran sazón, recomendable al 200%.",
       author: "Michael Chen",
-      location: "Toronto, Canada",
+      location: "Bucaramanga",
       image: "/michael.webp",
       rating: 5
     },
     {
       id: 3,
-      quote: "We booked the family package and it exceeded our expectations. The kids loved the activities and we enjoyed the spa. Perfect balance for everyone.",
+      quote: "En general fue una excelente experiencia, es una muy buena ubicación, personal muy amable y atentos, la comida muy rica, los recorridos puebleando por Boyacá espectaculares.",
       author: "Sophia Rodriguez",
-      location: "Barcelona, Spain",
+      location: "Quindio",
       image: "/sofia.jpeg",
       rating: 4
     }

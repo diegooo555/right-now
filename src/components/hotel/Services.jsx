@@ -1,10 +1,10 @@
 import {
   MapPin,
-  Heart,
   Building2,
   Car,
   Wifi,
-  Tv
+  Tv,
+  Dog
 } from "lucide-react";
 
 const Services = () => {
@@ -14,21 +14,21 @@ const Services = () => {
               {
                 icon: Wifi,
                 title: "Wifi",
-                desc: "Internet 4G de alta velocidad.",
+                desc: "Internet Gratis.",
                 bg: "bg-blue-50",
                 iconColor: "text-blue-600",
               },
               {
                 icon: MapPin,
                 title: "Ubicación Privilegiada",
-                desc: "A 300 metros del monumento, cerca de museos y el casco histórico.",
+                desc: "A 300 metros del monumento a los 14 Lanceros y el museo histórico.",
                 bg: "bg-green-50",
                 iconColor: "text-green-600",
               },
               {
-                icon: Heart,
+                icon: Dog,
                 title: "Pet Friendly",
-                desc: "Trae a tu mascota y disfruten juntos de una experiencia inolvidable.",
+                desc: "Viaja con tu mejor amigo.",
                 bg: "bg-amber-50",
                 iconColor: "text-amber-600",
               },
@@ -48,8 +48,8 @@ const Services = () => {
               },
               {
                 icon: Car,
-                title: "Fácil Acceso",
-                desc: "Estacionamiento gratuito y fácil acceso a las principales vías de la ciudad.",
+                title: "Parking",
+                desc: "Estacionamiento gratuito y fácil acceso.",
                 bg: "bg-teal-50",
                 iconColor: "text-teal-600",
               },
