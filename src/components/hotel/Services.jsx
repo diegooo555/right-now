@@ -14,7 +14,7 @@ const Services = () => {
               {
                 icon: Wifi,
                 title: "Wifi",
-                desc: "Internet Gratis.",
+                desc: "",
                 bg: "bg-blue-50",
                 iconColor: "text-blue-600",
               },
