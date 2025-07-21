@@ -4,7 +4,7 @@ import PopularDestinations from "../../components/home/PopularDestinations";
 import Amenities from "../../components/home/Amenities";
 import Testimonials from "../../components/home/Testimonials";
 import Footer from "../../components/home/Footer";
-import { getReservations } from "../../api/reservation";
+import Services from "../../components/hotel/Services";
 
 function Home() {
 
@@ -14,10 +14,11 @@ function Home() {
       <Navbar />
       <Hero />
       <PopularDestinations />
-      <Amenities />
+      <div className="container mx-auto px-4">
+        <Services/>
+      </div>
       <Testimonials />
       <Footer />
-      <button onClick={() => getReservations("1")}>Get Reservations</button>
     </div>
   );
 }

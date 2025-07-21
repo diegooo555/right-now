@@ -139,7 +139,7 @@ const HotelInfo = () => {
                   realizadas por el huésped. Nos apoyamos en alianzas
                   estratégicas con servicios de spa y recorridos por los
                   pueblitos más emblemáticos de Boyacá. Ideal para compartir 
-                  con familia, amigos y pareja. 
+                  en familia, amigos y pareja. 
                   Somos PET Friendly (Condiciones y restricciones).
                 </p>
               </div>

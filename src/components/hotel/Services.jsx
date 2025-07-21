@@ -42,7 +42,7 @@ const Services = () => {
               {
                 icon: Tv,
                 title: "TV Gratis",
-                desc: "Mira tus canales nacionales favoritos totalmente gratis.",
+                desc: "Mira tus canales favoritos totalmente gratis.",
                 bg: "bg-red-50",
                 iconColor: "text-red-600",
               },
