@@ -182,7 +182,7 @@ const HotelInfo = () => {
                       Check-out
                     </span>
                   </div>
-                  <p className="text-gray-600 text-sm">8:00 AM - 11:00 AM</p>
+                  <p className="text-gray-600 text-sm">9:00 AM - 11:00 AM</p>
                 </div> 
 
                 <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-100">
