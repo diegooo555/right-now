@@ -10,6 +10,7 @@ import {
   Dog,
   DollarSign,
 } from "lucide-react";
+import Footer from '../../components/home/Footer';
 
 const HotelInfo = () => {
   return (
@@ -144,7 +145,6 @@ const HotelInfo = () => {
                 </p>
               </div>
 
-              {/* Quick Info Cards */}
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="bg-white rounded-xl p-4 shadow-sm border border-amber-100">
                   <div className="flex items-center gap-2 mb-2">
@@ -210,7 +210,6 @@ const HotelInfo = () => {
         </div>
       </section>
 
-      {/* Hotel Features Section */}
       <section className="py-5 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -223,6 +222,7 @@ const HotelInfo = () => {
           </div>
           
           <Services/>
+          <Footer/>
         </div>
       </section>
     </div>

@@ -17,13 +17,12 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
           <img src="/villa.png" alt="" className='md:w-14 md:h-14 rounded-full w-20 h-20 lg:w-20 lg:h-20'/>
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-sm font-medium hover:text-amber-400 transition-colors">Inicio</Link>
           <Link to="/infohotel" className="text-sm font-medium hover:text-amber-400 transition-colors">Hotel</Link>
           <a href="#destinations" className="text-sm font-medium hover:text-amber-400 transition-colors">Destinos</a>
           <a href="#offers" className="text-sm font-medium hover:text-amber-400 transition-colors">Ofertas</a>
-          <a href="#amenities" className="text-sm font-medium hover:text-amber-400 transition-colors">Amenidades</a>
+          <a href="https://maps.app.goo.gl/K4SUCqKMftz5jYFq9" target='_blank' className="text-sm font-medium hover:text-amber-400 transition-colors">Ubicación</a>
           <a href="#testimonials" className="text-sm font-medium hover:text-amber-400 transition-colors">Testimonios</a>
           <a href="#contact" className="text-sm font-medium hover:text-amber-400 transition-colors">Contacto</a>
           <Link to="/reservations" className="text-sm font-medium hover:text-amber-400 transition-colors">Mis Reservas</Link>
@@ -32,9 +31,6 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
         <div className="hidden md:flex items-center space-x-2">
           <LinkGoogle user={user}/>
         </div>
-
-        {/* Mobile Navigation Toggle */}
-
 
         <div className="md:hidden focus:outline-none flex gap-2">
         <LinkGoogle user={user}/>
@@ -48,7 +44,6 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
       </div>
     </div>
 
-    {/* Mobile Navigation Menu */}
     <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
       <div className="px-4 pt-2 pb-4 bg-white shadow-lg">
         <div className="flex flex-col space-y-3">
@@ -56,7 +51,7 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
           <Link to="/infohotel" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Hotel</Link>
           <a href="#destinations" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Destinos</a>
           <a href="#offers" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Ofertas</a>
-          <a href="#amenities" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Amenidades</a>
+          <a href="https://maps.app.goo.gl/K4SUCqKMftz5jYFq9" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)} target='_blank'>Ubicación</a>
           <a href="#testimonials" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Testimonios</a>
           <a href="#contact" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Contacto</a>
           <Link to="/reservations" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Mis Reservas</Link>  
