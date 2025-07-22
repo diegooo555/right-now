@@ -222,9 +222,10 @@ const HotelInfo = () => {
           </div>
           
           <Services/>
-          <Footer/>
         </div>
       </section>
+
+      <Footer/>
     </div>
   );
 };

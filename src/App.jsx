@@ -18,6 +18,7 @@ import Hotel from "./pages/admin/Hotel"
 import HotelInfo from "./pages/user/HotelInfo"
 import AdminDashboard from "./pages/admin/AdminDashboard"
 import CreateRoom from "./pages/admin/CreateRoom"
+import Plans from "./pages/user/Plans"
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/oauth2-redirect" element={<OAuth2RedirectHandler/>}/>
           <Route path="/survey" element={<ServiceSurvey/>}></Route>
+          <Route path="/plans" element={<Plans/>}/>
           <Route element={<ProtectedRouteVisitor/>}>
             <Route path="/register" element={<Register/>}/>
           </Route>

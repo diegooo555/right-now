@@ -45,7 +45,7 @@ const PopularDestinations = () => {
     {
       id: 3,
       image: "https://res.cloudinary.com/dv465a7h0/image/upload/stone_w3itza",
-      name: "Mountain Escape Resort",
+      name: "Cerro de Bolivar - Piedra Hueca",
       location: "Paipa",
       rating: 4.9
     },

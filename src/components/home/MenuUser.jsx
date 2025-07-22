@@ -20,7 +20,7 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
         <div className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-sm font-medium hover:text-amber-400 transition-colors">Inicio</Link>
           <Link to="/infohotel" className="text-sm font-medium hover:text-amber-400 transition-colors">Hotel</Link>
-          <a href="#destinations" className="text-sm font-medium hover:text-amber-400 transition-colors">Destinos</a>
+          <Link to="/plans" className="text-sm font-medium hover:text-amber-400 transition-colors">Planes</Link>
           <a href="#offers" className="text-sm font-medium hover:text-amber-400 transition-colors">Ofertas</a>
           <a href="https://maps.app.goo.gl/K4SUCqKMftz5jYFq9" target='_blank' className="text-sm font-medium hover:text-amber-400 transition-colors">Ubicación</a>
           <a href="#testimonials" className="text-sm font-medium hover:text-amber-400 transition-colors">Testimonios</a>
@@ -49,7 +49,7 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
         <div className="flex flex-col space-y-3">
           <Link to="/" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Inicio</Link>
           <Link to="/infohotel" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Hotel</Link>
-          <a href="#destinations" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Destinos</a>
+          <Link to="/plans" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Planes</Link>
           <a href="#offers" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Ofertas</a>
           <a href="https://maps.app.goo.gl/K4SUCqKMftz5jYFq9" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)} target='_blank'>Ubicación</a>
           <a href="#testimonials" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Testimonios</a>
