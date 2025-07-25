@@ -7,21 +7,21 @@ const EventsSection = () => {
       title: "Eventos Corporativos",
       description: "Espacios ideales para reuniones de trabajo, conferencias y eventos empresariales en un ambiente natural y relajante.",
       icon: Users,
-      features: ["Salones equipados", "Catering personalizado", "Tecnología audiovisual", "Espacios al aire libre"]
+      features: ["Catering personalizado", "Espacios al aire libre"]
     },
     {
       id: 2,
       title: "Eventos Familiares",
       description: "Celebra momentos especiales con tu familia en nuestros hermosos espacios rodeados de naturaleza.",
       icon: Heart,
-      features: ["Espacios amplios", "Decoración incluida", "Menú familiar", "Actividades recreativas"]
+      features: ["Espacios amplios", "Menú familiar", "Juegos al aire libre"]
     },
     {
       id: 3,
       title: "Piñatas",
       description: "Fiestas infantiles llenas de diversión y alegría en un ambiente seguro y natural para los más pequeños.",
       icon: Cake,
-      features: ["Decoración temática", "Animación infantil", "Menú para niños", "Juegos al aire libre"]
+      features: ["Decoración temática", "Animación infantil", "Actividades recreativas"]
     }
   ];
 
@@ -95,11 +95,7 @@ const EventsSection = () => {
             </div>
             <div className="text-center p-4">
               <div className="text-amber-500 font-semibold">Duración</div>
-              <div className="text-gray-600 text-sm">2-4 horas</div>
-            </div>
-            <div className="text-center p-4">
-              <div className="text-amber-500 font-semibold">Incluye</div>
-              <div className="text-gray-600 text-sm">Guía y refrigerio</div>
+              <div className="text-gray-600 text-sm">1 hora</div>
             </div>
           </div>
         </div>

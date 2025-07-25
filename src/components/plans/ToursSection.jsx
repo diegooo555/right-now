@@ -96,7 +96,6 @@ const ToursSection = () => {
               </div>
               <h4 className="font-semibold text-amber-800 mb-1">Incluye</h4>
               <p className="text-amber-700 text-sm">Transporte y guía</p>
-              <p className="text-amber-600 text-xs">Almuerzo típico incluido</p>
             </div>
             
             <div className="flex flex-col items-center">
