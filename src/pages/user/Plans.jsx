@@ -1,5 +1,6 @@
 import Footer from "../../components/home/Footer";
 import Navbar from "../../components/home/Navbar";
+import AlliancesSection from "../../components/plans/AlliancesSection";
 import EventsSection from "../../components/plans/EventsSections";
 import ServicesSection from "../../components/plans/ServicesSection";
 import ToursSection from "../../components/plans/ToursSection";
@@ -20,6 +21,8 @@ const Plans = () => {
       </section>
 
       <EventsSection/>
+      
+      <AlliancesSection/>
 
       <ToursSection/>
 

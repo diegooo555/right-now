@@ -71,12 +71,26 @@ const Footer = () => {
               Medios de Pago
             </h3>
             <div className="space-y-3">
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-amber-200 rounded-full flex items-center justify-center">
+                  <img src="/bancolombia.png" className="rounded-md"/>
+                </div>
+                <span className="text-gray-700 text-sm">Bancolombia</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-amber-200 rounded-full flex items-center justify-center">
+                  <img src="/nequi.png" className="rounded-md"/>
+                </div>
+                <span className="text-gray-700 text-sm">Nequi</span>
+              </div>              
               
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-amber-200 rounded-full flex items-center justify-center">
                   <CreditCard className="w-4 h-4 text-amber-600" />
                 </div>
-                <span className="text-gray-700 text-sm">Tarjeta de Crédito</span>
+                <span className="text-gray-700 text-sm">Tarjeta de Crédito (Condiciones y restricciones)</span>
               </div>
 
               <div className="space-y-2">
@@ -84,17 +98,9 @@ const Footer = () => {
                   <div className="w-8 h-8 bg-amber-200 rounded-full flex items-center justify-center">
                     <Smartphone className="w-4 h-4 text-amber-600" />
                   </div>
-                  <span className="text-gray-700 text-sm">PSE</span>
+                  <span className="text-gray-700 text-sm">PSE (Condiciones y restricciones)</span>
                 </div>
-
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-amber-200 rounded-full flex items-center justify-center">
-                  <Building2 className="w-4 h-4 text-amber-600" />
-                </div>
-                <span className="text-gray-700 text-sm">Corresponsal Bancario</span>
-              </div>
+              </div>              
             </div>
           </div>
         </div>

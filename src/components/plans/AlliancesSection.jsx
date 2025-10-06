@@ -1,24 +1,39 @@
 import { MapPin, Clock, Camera, Star } from "lucide-react";
 
-const ToursSection = () => {
+const AlliancesSection = () => {
   const destinations = [
     {
-      name: "Tibasosa",
-      description: "Conocido como la 'Capital Frutera de Boyacá', famoso por sus deliciosas fresas y clima templado.",
-      highlights: ["Cultivos de fresa", "Gastronomía local", "Artesanías"],
-      image: "/tibasosa.jpg"
+      name: "Instituto Termal de Paipa",
+      description:
+        "Parque Acuático, SPA Termal, Centro de Hidroterapia y IPS Paipa. Contamos con amplias instalaciones, parqueadero, venta de artículos deportivos y de belleza, artesanías, así como servicio de Restaurante y cafetería.",
+      highlights: [
+        "Piscinas termales naturales",
+        "Centro de hidroterapia y SPA",
+        "Restaurante y cafetería con vista panorámica"
+      ],
+      image: "/itp.webp"
     },
     {
-      name: "Nobsa",
-      description: "Pueblo textil por excelencia, donde la tradición de los tejidos se mantiene viva generación tras generación.",
-      highlights: ["Tejidos artesanales", "Ruanas tradicionales", "Talleres textiles"],
-      image: "/nobsa.jpeg"
+      name: "Barco Libertad",
+      description:
+        "El Barco Libertad es un atractivo turístico ubicado sobre el Lago Sochagota en Paipa, Boyacá. Este barco ofrece experiencias únicas, como recorridos por el lago, eventos sociales y celebraciones de bodas.",
+      highlights: [
+        "Paseos por el Lago Sochagota",
+        "Eventos y celebraciones a bordo",
+        "Vistas espectaculares del paisaje boyacense"
+      ],
+      image: "/barco.png"
     },
     {
-      name: "Monguí",
-      description: "Uno de los pueblos más hermosos de Colombia, famoso por sus balones de fútbol y arquitectura colonial.",
-      highlights: ["Balones artesanales", "Arquitectura colonial", "Plaza principal"],
-      image: "/mongui.jpg"
+      name: "Viñedo & Cava Marqués de Puntalarga",
+      description:
+        "Deguste vinos excepcionales acompañados de una tabla de quesos.",
+      highlights: [
+        "Catas de vino guiadas",
+        "Maridajes con productos locales",
+        "Vista panorámica de los viñedos"
+      ],
+      image: "/vino.jpeg"
     }
   ];
 
@@ -27,7 +42,7 @@ const ToursSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-amber-400 mb-4">
-            Puebleando por Boyacá
+            Alianzas
           </h2>
           <p className="text-amber-600 text-lg max-w-3xl mx-auto leading-relaxed">
             Descubre los pueblos más emblemáticos de Boyacá en tours guiados que te 
@@ -113,4 +128,4 @@ const ToursSection = () => {
   );
 };
 
-export default ToursSection;
+export default AlliancesSection;

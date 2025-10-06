@@ -5,23 +5,23 @@ const EventsSection = () => {
     {
       id: 1,
       title: "Eventos Corporativos",
-      description: "Espacios ideales para reuniones de trabajo, conferencias y eventos empresariales en un ambiente natural y relajante.",
+      description: "Realiza eventos de actividad física y de bienestar con tu equipo de trabajo al aire libre.",
       icon: Users,
-      features: ["Catering personalizado", "Espacios al aire libre"]
+      features: ["Catering personalizado", "Juegos al aire libre", "Actividades recreativas", "Zona BBQ", "Parrilla", "Canchas de Plastilina", "Banquitas"]
     },
     {
       id: 2,
       title: "Eventos Familiares",
-      description: "Celebra momentos especiales con tu familia en nuestros hermosos espacios rodeados de naturaleza.",
+      description: "Celebra tus eventos especiales al aire libre con tu familia y amigos.",
       icon: Heart,
-      features: ["Espacios amplios", "Menú familiar", "Juegos al aire libre"]
+      features: ["Eventos Recreativos", "Menú familiar", "Juegos al aire libre", "Zona BBQ", "Parrilla", "Canchas de Plastilina", "Banquitas"]
     },
     {
       id: 3,
       title: "Piñatas",
       description: "Fiestas infantiles llenas de diversión y alegría en un ambiente seguro y natural para los más pequeños.",
       icon: Cake,
-      features: ["Decoración temática", "Animación infantil", "Actividades recreativas"]
+      features: ["Decoración temática", "Animación infantil", "Actividades recreativas", "Juegos al aire libre", "Catering Personalizado"]
     }
   ];
 
@@ -34,7 +34,7 @@ const EventsSection = () => {
           </h2>
           <div className="flex items-center justify-center gap-2 text-amber-700">
             <Users className="w-5 h-5" />
-            <span className="text-lg font-medium">Eventos a partir de 10 personas</span>
+            <span className="text-lg font-medium">Eventos a partir de 20 personas</span>
           </div>
         </div>
 

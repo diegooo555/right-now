@@ -125,7 +125,7 @@ const HotelInfo = () => {
             {/* Hotel Information */}
             <div className="space-y-8">
               <div>
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold block text-amber-400 leading-tight">
+                <h1 className="text-2xl sm:text-4xl lg:text-4xl font-serif font-bold block text-amber-400 leading-tight">
                   Hotel Villa Libertad -
                   Pantano de Vargas - Paipa
                 </h1>
@@ -137,11 +137,15 @@ const HotelInfo = () => {
                   oportunidad de descanso, bienestar y conexión con la
                   naturaleza, mediante un alojamiento cálido, rodeado de
                   historia, eventos al aire libre y experiencias gastronómicas
-                  realizadas por el huésped. Nos apoyamos en alianzas
-                  estratégicas con servicios de spa y recorridos por los
-                  pueblitos más emblemáticos de Boyacá. Ideal para compartir 
-                  en familia, amigos y pareja. 
-                  Somos PET Friendly (Condiciones y restricciones).
+                  realizadas por tí. Nos apoyamos en alianzas
+                  estratégicas con el Instituto Termal de Paipa,
+                  Barco Libertad, Viñedo & Cava Marqués de Puntalarga y recorridos por los
+                  pueblitos más emblemáticos de Boyacá. 
+                </p>
+                <p className='text-gray-700 text-base sm:text-lg leading-relaxed text-justify block'>
+                  Ideal para compartir 
+                  con familia, amigos y pareja.
+                  Somos PET Friendly (Condiciones y restricciones).  
                 </p>
               </div>
 
