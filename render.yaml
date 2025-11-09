@@ -1,10 +1,4 @@
-services:
-  - type: web
-    name: mi-app-react
-    env: static
-    buildCommand: npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /.*
-        destination: /index.html
+routes:
+  - type: rewrite
+    source: /.*
+    destination: /index.html
