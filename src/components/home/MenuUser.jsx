@@ -1,7 +1,7 @@
 import React from 'react';
 import LinkGoogle from '../ui/LinkGoogle';
 import { Link } from 'react-router';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogOut } from 'lucide-react';
 
 
 const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
@@ -30,6 +30,19 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
 
         <div className="hidden md:flex items-center space-x-2">
           <LinkGoogle user={user}/>
+          {user && (
+            <button
+              onClick={() => {
+                localStorage.removeItem('alfretyuiopwerqazxcnosrew');
+                window.location.reload();
+              }}
+              title="Cerrar sesión"
+              className="flex items-center gap-1 border border-red-200 px-3 py-2 rounded-md bg-white text-red-500 hover:bg-red-50 hover:border-red-400 transition-all text-xs font-semibold"
+            >
+              <LogOut className="w-4 h-4" />
+              <span>Salir</span>
+            </button>
+          )}
         </div>
 
         <div className="md:hidden focus:outline-none flex gap-2">
@@ -54,7 +67,19 @@ const MenuUser = ({isScrolled, user, isOpen, setIsOpen}) => {
           <a href="https://maps.app.goo.gl/K4SUCqKMftz5jYFq9" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)} target='_blank'>Ubicación</a>
           <a href="#testimonials" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Testimonios</a>
           <a href="#contact" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Contacto</a>
-          <Link to="/reservations" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Mis Reservas</Link>  
+          <Link to="/reservations" className="text-sm font-medium py-2 hover:text-gold-600 transition-colors" onClick={() => setIsOpen(false)}>Mis Reservas</Link>
+          {user && (
+            <button
+              onClick={() => {
+                localStorage.removeItem('alfretyuiopwerqazxcnosrew');
+                window.location.reload();
+              }}
+              className="flex items-center gap-2 text-sm font-medium py-2 text-red-500 hover:text-red-700 transition-colors"
+            >
+              <LogOut className="w-4 h-4" />
+              Cerrar sesión
+            </button>
+          )}
         </div>
       </div>
     </div>
